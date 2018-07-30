@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans|Nunito|Spectral|Adamina");
+body {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: "Noto Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.8; }
+
+a {
+  color: #03A9F4; }
+  a:hover {
+    text-decoration: none;
+    color: #03A9F4; }
+
+.mp-text-primary {
+  color: rgba(0, 0, 0, 0.87); }
+.mp-text-secondary {
+  color: rgba(0, 0, 0, 0.54); }
+.mp-text-tertiary {
+  color: rgba(0, 0, 0, 0.24); }
+.mp-text-yellow {
+  color: #03A9F4; }
+.mp-text-blue {
+  color: #03A9F4; }
+
+.mp-heading {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: "Nunito", sans-serif;
+  font-weight: bold; }
+
+.mp-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px; }
+
+.--icon-white {
+  fill: #FFFFFF; }
+
+.--icon-primary {
+  fill: rgba(0, 0, 0, 0.87); }
+
+.--icon-secondary {
+  fill: rgba(0, 0, 0, 0.54); }
+
+.--icon-tertiary {
+  fill: rgba(0, 0, 0, 0.24); }
+
+.mp-collection-icon {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 8px;
+  padding: 0.5em;
+  border-radius: 50%;
+  background: #ECEFF1;
+  min-width: 20px;
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold; }
+
+.mp-img {
+  display: inline-block; }
+  .mp-img-100-auto {
+    width: 100px;
+    max-width: 100%;
+    height: auto; }
+  .mp-img-auto-150 {
+    max-height: 50px;
+    max-width: 100%; }
+
+.mp-btn-primary {
+  background: #03A9F4;
+  color: #FFFFFF;
+  padding: 0.9em 2.5em;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(74, 70, 141, 0.1); }
+  .mp-btn-primary:hover {
+    background: #039fe5;
+    color: #FFFFFF;
+    box-shadow: 0 0 18px rgba(74, 70, 141, 0.1); }
+.mp-btn--icon {
+  cursor: pointer;
+  border: none;
+  padding: 0.4em;
+  background: transparent; }
+
+.mp-nav {
+  width: 300px;
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 3px 39px rgba(74, 70, 141, 0.14);
+  overflow-y: auto;
+  padding-bottom: 200px;
+  background: #FFFFFF; }
+  .mp-nav__item, .mp-nav__item a {
+    color: rgba(0, 0, 0, 0.54); }
+    .mp-nav__item svg, .mp-nav__item a svg {
+      fill: rgba(0, 0, 0, 0.54); }
+    .mp-nav__item:hover, .mp-nav__item a:hover {
+      color: #66BB6A; }
+      .mp-nav__item:hover svg, .mp-nav__item a:hover svg {
+        fill: #66BB6A; }
+    .mp-nav__item--selected, .mp-nav__item--selected a, .mp-nav__item a--selected, .mp-nav__item a--selected a {
+      @extends .mp-nav__item;
+      color: #66BB6A; }
+      .mp-nav__item--selected svg, .mp-nav__item--selected a svg, .mp-nav__item a--selected svg, .mp-nav__item a--selected a svg {
+        fill: #66BB6A; }
+      .mp-nav__item--selected:before, .mp-nav__item--selected a:before, .mp-nav__item a--selected:before, .mp-nav__item a--selected a:before {
+        content: "";
+        display: block;
+        background: #66BB6A;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%; }
+
+.mp-tag {
+  color: rgba(0, 0, 0, 0.54);
+  background: #ECEFF1;
+  padding: 0.2em 1em;
+  border-radius: 40px;
+  transition: 0.04s all ease-in; }
+  .mp-tag:hover {
+    color: rgba(0, 0, 0, 0.54);
+    background: #e3e8eb; }
+
+.mp-precedent__body {
+  font-family: "Adamina", serif; }
+.mp-precedent + .mp-precedent {
+  border-top: 1px solid #ECEFF1; }
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,42 @@
+.mp-nav
+    width: 300px
+    max-width: 100%
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    box-shadow: 0 3px 39px rgba($purple, 0.14)
+    overflow-y: auto
+    padding-bottom: 200px
+    background: $white
+
+    &__item,
+    &__item a
+        @include text-secondary
+
+        svg
+            fill: rgba(0, 0, 0, 0.54)
+
+        &:hover
+            @include text-green
+
+            svg
+                fill: $green
+
+        &--selected,
+        &--selected a,
+            @extends .mp-nav__item
+            @include text-green
+
+            svg
+                fill: $green
+
+            &:before
+                content: ''
+                display: block
+                background: $green
+                // width: 30px
+                position: absolute
+                left: 0
+                top: 0
+                height: 100%
