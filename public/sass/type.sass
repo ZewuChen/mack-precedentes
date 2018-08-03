@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Nunito|Adamina')
+
+body
+    font-family: 'Noto Sans', sans-serif
+    font-size: 15px
+    -webkit-font-smoothing: antialiased
+
+a
+    color: $blue
+
+    &:hover
+        color: $blue
+
+/***** Font size ******/
+
+.mp-text-small
+    font-size: $text-small
+
+.mp-text-large
+    font-size: $text-large
+
+/***** Font weight ******/
+
+.mp-text-bold
+    @extend .font-weight-bold
+
+/***** Text transform ******/
+
+.mp-text-uppercase
+    text-transform: uppercase
+
+.mp-text-capitalize
+    text-transform: capitalize
+
+.mp-text-lowercase
+    text-transform: lowercase
+
+/***** Types *****/
+
+.mp-serif
+    font-family: 'Adamina', serif
+    line-height: 1.8
+
+.mp-heading
+    @extend .mp-text-bold
+    font-family: 'Nunito', sans-serif

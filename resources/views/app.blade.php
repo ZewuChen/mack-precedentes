@@ -25,7 +25,7 @@
     <a href="{{ route('user.index') }}"><input type="submit" value="Profile"></a>
     
     <div class="container">
-
+        <img class="mp-img--48x48" src="https://randomuser.me/api/portraits/men/32.jpg">
         @yield ('content')
         
     </div>

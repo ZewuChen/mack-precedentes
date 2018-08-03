@@ -20,16 +20,9 @@ Route::group(['prefix' => 'profile'], function () {
 
 
 
-
-
-
-Route::group(['prefix' => 'types'], function () {
-    Route::get('{precedentType}', 'PrecedentTypeController@show')->name('type.show');
-});
-
-
-
-
+// Precedent Types
+Route::resource('types', 'PrecedentTypeController')
+    ->only('show');
 
 // Courts
 Route::resource('courts', 'CourtController')

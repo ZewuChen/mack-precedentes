@@ -1,11 +1,17 @@
-.mp-img
+.mp-image
     display: inline-block
 
-    &-100-auto
-        width: 100px
-        max-width: 100%
-        height: auto
+    &--36x36
+        @extend .mp-image
+        max-width: 36px
+        max-height: 36px
 
-    &-auto-150
-        max-height: 50px
-        max-width: 100%
+    &--48x48
+        @extend .mp-image
+        max-width: 48px
+        max-height: 48px
+
+    &--w-100
+        @extend .mp-image
+        width: 100%
+        height: auto
