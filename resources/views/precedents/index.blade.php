@@ -3,11 +3,7 @@
 @section ('content')
 
     <div class="py-5">
-        <h2 class="mp-heading">Precedentes      
-            <a href="{{ route('precedent.create') }}" class="btn btn-info btn-lg">
-                <span class="glyphicon glyphicon-plus"></span> + 
-            </a>
-        </h2>
+        <h2 class="mp-heading">Precedentes</h2>
 
         <p class="text-secondary">
             <small>
@@ -30,7 +26,7 @@
             </form>
         </div>
 
-        <div class="mr-5 border border-primary">
+        {{-- <div class="mr-5 border border-primary">
             <form class="form" method="POST" action="{{ route('precedent.search') }}" >
                 @csrf
 
@@ -63,7 +59,7 @@
                 </div>                
 
             </form>
-        </div>
+        </div> --}}
 
         @foreach ($precedents as $precedent)
             @include ('precedents.precedent')

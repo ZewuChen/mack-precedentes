@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Court extends Model
 {
+    protected $fillable = [
+        'name', 'alias',
+    ];
+
     public function precedents()
     {
         return $this->hasMany(Precedent::class);
@@ -13,6 +17,6 @@ class Court extends Model
 
     public function scopeOrdered($query)
     {
-    	return $query->orderBy('name');
+        return $query->orderBy('name');
     }
 }

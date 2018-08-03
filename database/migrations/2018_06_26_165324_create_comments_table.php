@@ -18,7 +18,7 @@ class CreateCommentsTable extends Migration
             $table->text('body');
             $table->string('slug')->unique();
             $table->string('file')->nullable();
-            $table->integer('status')->default('0');
+            $table->integer('is_approved')->default('0');
             $table->timestamps();
 
             $table->unsignedInteger('precedent_id');

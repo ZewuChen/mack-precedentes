@@ -10,5 +10,4 @@ class Courts extends Repository
     {
         return Court::ordered()->get();
     }
-
 }

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Http\Requests\CommentCreateRequest;
 use App\Precedent;
 use App\Repositories\Comments;
-use Illuminate\Http\Request;
 use Illuminate\Http\File;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
 
 class CommentController extends Controller
 {
@@ -22,51 +22,48 @@ class CommentController extends Controller
 
     public function show(Comment $comment)
     {
+        $this->authorize('view', $comment);
+
         return view('comments.show', compact('comment'));
     }
 
-    public function store(Request $request, Precedent $precedent)
+    public function store(CommentCreateRequest $request)
     {
-        $data = $request->all();
+        $this->authorize('create', Comment::class);
 
-        $validate = validator($data, $this->comments->createRules);
+        $comment = $this->comments->create(
+            Auth::user(),
+            $request->only('body', 'precedent_id')
+        );
 
-        if($validate->fails()) 
-        {
-            return redirect()->back()->withErrors($validate)->withInput(); 
+        if ($request->has('file')) {
+            $path = Storage::putFile('docs/comments', $request->file('file'));
+
+            $this->comments->setFilePath($comment, $path);
         }
-        else
-        {
-            $file = !isset($data['file']) ? null : '/storage/'.Storage::disk('local')->putFile('uploads', $data['file']);
 
-            $comment = Auth::user()->comments()->create([
-            'body' => $request->get('body'),
-            'slug' => str_random(48),
-            'file' => $file,
-            'precedent_id' => $precedent->id,
-            'user_id' => Auth::user()->id
-            ]);
-
-            return view('comments.show', compact('comment'));
-        }
-        
+        return redirect()
+            ->route('comments.show', $comment)
+            ->with('success', 'Comentário adicionado com sucesso.');
     }
 
-    public function status(Request $request)
+    public function approve(Comment $comment)
     {
-        $comment = Comment::find($request->id);
+        $this->authorize('approve', $comment);
 
-        $update = $comment->update([
-                'status' => '1'
-        ]);
+        $comment = $this->comments->approve($comment);
 
-        if($update)
-        {
-            return redirect()->back(); 
-        }
-        else
-        {
-            return 'Erro';
-        }
+        return redirect()
+            ->route('comments.show', $comment)
+            ->with('success', 'Comentário aprovado com sucesso.');
+    }
+
+    public function destroy(Comment $comment)
+    {
+        $this->authorize('delete', $comment);
+
+        $this->comments->delete($comment);
+
+        return back();
     }
 }

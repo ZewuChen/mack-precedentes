@@ -15,8 +15,8 @@
             <p class="mp-text-secondary">
                 <small>
                     Emitido em 
-                    <a href="{{ route('court.show', $precedent->court) }}">{{ $precedent->court->alias }}</a> 
-                    {{ (new Carbon($precedent->created_at))->diffForHumans() }}
+                    <a href="{{ route('courts.show', $precedent->court) }}">{{ $precedent->court->alias }}</a> 
+                    {{ $precedent->created_at->diffForHumans() }}
                 </small>
             </p>
 
@@ -30,7 +30,6 @@
 
                     <input type="hidden" name="precedent_id" value="{{$precedent->id}}">
 
-                    {{-- <button class="mp-btn--icon d-flex align-items-center justify-content-center mr-2" type="submit" name="salvar"> --}}
                     <button class="btn btn-primary btn-sm" type="submit" name="salvar">
                     <svg class="mp-icon --icon-tertiary" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,18L12,15.82L7,18V5H17M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z" /></svg>
                     </button>

@@ -2,12 +2,15 @@
 
 namespace App;
 
+use App\Traits\WithSlug;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    use WithSlug;
+    
     protected $fillable = [
-        'body', 'slug', 'file', 'precedent_id', 'user_id', 'status'
+        'body', 'slug', 'file', 'is_approved', 'precedent_id', 'user_id'
     ];
 
     public function getRouteKeyName()
@@ -23,5 +26,10 @@ class Comment extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function isApproved()
+    {
+        return $this->is_approved;
     }
 }

@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    {{-- @include ('nav') --}}
+    @include ('nav')
     
     @auth
         <form action="{{ route('logout') }}" method="POST">

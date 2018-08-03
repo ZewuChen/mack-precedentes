@@ -2,8 +2,8 @@
 
 Route::group(['prefix' => 'precedentes'], function () {
     Route::get('/', 'PrecedentController@index')->name('precedent.index');
-    Route::get('/novo', 'PrecedentController@create')->name('precedent.create');
-    Route::post('/novo', 'PrecedentController@store');
+    Route::get('/create', 'PrecedentController@create')->name('precedent.create');
+    Route::post('/store', 'PrecedentController@store');
     Route::post('/search', 'PrecedentController@search')->name('precedent.search');
     Route::get('{precedent}', 'PrecedentController@show')->name('precedent.show');
 });
@@ -18,23 +18,32 @@ Route::group(['prefix' => 'profile'], function () {
     Route::post('/saves/destroy', 'SavesController@destroy')->name('save.destroy');
 });
 
-Route::group(['prefix' => 'tribunais'], function () {
-    Route::get('{court}', 'CourtController@show')->name('court.show');
-});
 
-Route::group(['prefix' => 'tags'], function () {
-    Route::get('{tag}', 'TagController@show')->name('tag.show');
-});
+
+
+
 
 Route::group(['prefix' => 'types'], function () {
     Route::get('{precedentType}', 'PrecedentTypeController@show')->name('type.show');
 });
 
-Route::group(['prefix' => 'comentarios'], function () {
-    Route::post('create/{precedent}', 'CommentController@store')->name('comment.create');
-    Route::post('status/{comment}', 'CommentController@status')->name('comment.status');
-    Route::get('{comment}', 'CommentController@show')->name('comment.show');
-});
+
+
+
+
+// Courts
+Route::resource('courts', 'CourtController')
+    ->only('show');
+
+// Tags
+Route::resource('tags', 'TagController')
+    ->only('show');
+
+// Comments
+Route::patch('comments/{comment}/approve', 'CommentController@approve')
+    ->name('comments.approve');
+Route::resource('comments', 'CommentController')
+    ->only('show', 'store', 'destroy');
 
 Route::group(['prefix' => 'colecoes'], function () {
     Route::post('new', 'CollectionController@new')->name('collection.new');

@@ -11,4 +11,12 @@
         <small>Publicado {{ (new Carbon($comment->created_at))->diffForHumans() }} por {{ $comment->user->name }}</small>
     </p>
 
+    @if ($comment->file)
+        <a href="{{ asset('storage/' . $comment->file) }}" download>Baixar anexo</a>
+    @endif
+
+    {{ Form::open(['route' => array('comments.destroy', $comment), 'method' => 'delete']) }}
+        {{ Form::submit('Deletar') }}
+    {{ Form::close() }}
+
 @endsection
