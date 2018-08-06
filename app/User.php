@@ -35,6 +35,7 @@ class User extends Authenticatable
 
     public function saves()
     {
-        return $this->belongsToMany(Precedent::class)->withTimestamps();
+        return $this->hasMany(Precedent::class);
     }
+    
 }

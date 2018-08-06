@@ -104,4 +104,24 @@ class PrecedentController extends Controller
 
     }
 
+    public function like(Request $request)
+    {
+        $precedent = Precedent::find($request['precedent_id']);
+
+        $precedent->likes()->create([
+            'user_id' => Auth::user()->id
+        ]);
+
+        return redirect()->route('precedent.index');
+    }
+
+    public function deslike(Request $request)
+    {
+        $precedent = Precedent::find($request['precedent_id']);
+
+        $precedent->likes()->where('user_id', Auth::user()->id)->delete();
+
+        return redirect()->route('precedent.index');
+    }
+
 }

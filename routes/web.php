@@ -4,6 +4,8 @@ Route::group(['prefix' => 'precedentes'], function () {
     Route::get('/', 'PrecedentController@index')->name('precedent.index');
     Route::get('/create', 'PrecedentController@create')->name('precedent.create');
     Route::post('/store', 'PrecedentController@store');
+    Route::post('/like', 'PrecedentController@like')->name('precedent.like');
+    Route::post('/deslike', 'PrecedentController@deslike')->name('precedent.deslike');
     Route::post('/search', 'PrecedentController@search')->name('precedent.search');
     Route::get('{precedent}', 'PrecedentController@show')->name('precedent.show');
 });

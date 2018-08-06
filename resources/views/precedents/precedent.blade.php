@@ -100,11 +100,35 @@
     @endif
 
     <div class="d-flex align-items-end justify-content-between flex-wrap">
-        <div class="d-flex align-items-center flex-wrap mr-5"> 
-            <a class="d-flex align-items-center mr-4" href="">
-                <svg class="mp-icon mr-2 --icon-tertiary" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z" /></svg>
-                <small class="font-weight-bold mp-text-tertiary">Curtir</small>
-            </a>
+        <div class="d-flex align-items-center flex-wrap mr-5">
+
+        @if  (! $precedent->hasLike($precedent))
+            <form action="{{ route('precedent.like') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+                <input type="hidden" name="precedent_id" value="{{$precedent->id}}">
+                
+                <a class="d-flex align-items-center mr-4 btn btn-primary btn-sm" href="">
+                    <button class="mp-icon mr-2 --icon-tertiary" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z" /></button>
+                    <small class="font-weight-bold mp-text-tertiary">Curtir</small>
+                </a>
+
+            </form>
+        @else
+            <form action="{{ route('precedent.deslike') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+
+                <input type="hidden" name="precedent_id" value="{{$precedent->id}}">
+                
+                <a class="d-flex align-items-center mr-4 btn btn-danger btn-sm" href="">
+                    <button class="mp-icon mr-2 --icon-tertiary" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z" /></button>
+                    <small class="font-weight-bold mp-text-tertiary">Curtir</small>
+                </a>
+
+            </form>
+        @endif
+
+            
 
             <div class="d-flex align-items-center">                
                 <svg class="mp-icon mr-2 --icon-tertiary" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M5,3C3.89,3 3,3.89 3,5V19C3,20.11 3.89,21 5,21H19C20.11,21 21,20.11 21,19V5C21,3.89 20.11,3 19,3H5M5,5H19V19H5V5M7,7V9H17V7H7M7,11V13H17V11H7M7,15V17H14V15H7Z" /></svg>

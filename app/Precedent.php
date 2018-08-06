@@ -54,9 +54,14 @@ class Precedent extends Model
         return $this->belongsToMany(Collection::class)->withTimestamps();
     }
 
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'like');
+    }
+
     public function saves()
     {
-        return $this->belongsToMany(User::class)->withTimestamps();
+        return $this->belongsToMany(User::class)->withTimestamps();;
     }
 
     public function has(Precedent $precedent)
@@ -65,6 +70,24 @@ class Precedent extends Model
         $contain = $precedent->saves->contains(Auth::user()->id); 
 
         return $contain;
+    }
+
+    public function hasLike(Precedent $precedent)
+    {
+        
+        $likes = $precedent->likes->where('user_id' , Auth::user()->id); 
+
+        foreach ($likes as $like) {
+            if($like['like_id'] == $precedent->id)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 
     public function scopeLoggedIn($query)

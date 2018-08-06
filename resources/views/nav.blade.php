@@ -50,11 +50,6 @@
 
         @endauth
 
-        <div class="d-flex align-items-center justify-content-center" style="position: absolute; bottom: 24px; left: 0; right: 0;">
-            <a href="#">
-                <img class="mp-img-100-auto" src="{{ url('img/mackenzie-logo.png') }}">
-            </a>
-        </div>
 
     </ul>
 </nav>

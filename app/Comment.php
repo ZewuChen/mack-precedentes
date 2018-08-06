@@ -32,4 +32,9 @@ class Comment extends Model
     {
         return $this->is_approved;
     }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'like');
+    }
 }
