@@ -56,7 +56,7 @@ class Precedent extends Model
 
     public function saves()
     {
-        return $this->belongsToMany(User::class)->withTimestamps();;
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     public function has(Precedent $precedent)
