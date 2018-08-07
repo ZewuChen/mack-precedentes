@@ -1,26 +1,26 @@
 <?php
 
+// Precedents
 Route::group(['prefix' => 'precedentes'], function () {
-    Route::get('/', 'PrecedentController@index')->name('precedent.index');
-    Route::get('/create', 'PrecedentController@create')->name('precedent.create');
-    Route::post('/store', 'PrecedentController@store');
-    Route::post('/search', 'PrecedentController@search')->name('precedent.search');
-    Route::get('{precedent}', 'PrecedentController@show')->name('precedent.show');
+    Route::get('saved', 'PrecedentController@saved')->name('precedents.saved');
+    Route::get('meus-precedentes', 'SavesController@myPrecedents')->name('precedents.mine');
+    Route::get('search', 'PrecedentController@search')->name('precedents.search');
+    Route::post('{precedent}/save', 'SavesController@save')->name('precedents.save');
+    Route::post('{precedent}/unsave', 'SavesController@unsave')->name('precedents.unsave');
 });
 
 Route::resource('precedents', 'PrecedentController')
-    ->only('destroy');
+    ->only('create', 'store', 'destroy', 'show', 'index');
 
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/', 'UserController@index')->name('user.index');
-    Route::put('/update', 'UserController@update')->name('user.update');
-    Route::post('/password', 'UserController@password')->name('user.password');
-    Route::get('/saved', 'SavesController@index')->name('save.index');
-    Route::get('/meus-precedentes', 'SavesController@myPrecedents')->name('precedents.mine');
+    Route::put('update', 'UserController@update')->name('user.update');
+    Route::post('password', 'UserController@password')->name('user.password');
 });
 
-Route::post('precedents/{precedent}/save', 'SavesController@save')->name('precedents.save');
-Route::post('precedents/{precedent}/unsave', 'SavesController@unsave')->name('precedents.unsave');
+Route::get('profile', 'UserController@index')->name('profile');
+
+
 
 // Precedent Types
 Route::resource('types', 'PrecedentTypeController')

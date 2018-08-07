@@ -49,12 +49,12 @@ class PrecedentController extends Controller
 
         if($validate->fails())
         {
-            return redirect()->route('precedent.create')->withErrors($validate)->withInput(); 
+            return redirect()->route('precedents.create')->withErrors($validate)->withInput(); 
         }
         else
         {
             $insert = $this->precedents->create($data);
-            return redirect()->route('precedent.index');
+            return redirect()->route('precedents.index');
         }
         
     }
@@ -85,4 +85,12 @@ class PrecedentController extends Controller
         return view('precedents.index', compact('precedents'));
     }
 
+    public function saved()
+    {
+        // authorize
+        
+        $precedents = $this->precedents->savedBy(Auth::user());
+
+        return view('precedents.saved', compact('precedents'));
+    }
 }

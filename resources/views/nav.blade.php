@@ -6,7 +6,7 @@
     </div>
 
     <div class="my-5 px-4">
-        <a class="mp-button--primary" href="{{ route('precedent.create') }}">Criar um precedente</a>
+        <a class="mp-button--primary" href="{{ route('precedents.create') }}">Criar um precedente</a>
     </div>
 
     <ul class="list-unstyled">
@@ -23,7 +23,7 @@
             </a>
         </li>
         <li class="mp-nav__item">
-            <a class="d-flex align-items-center py-2" href="#">
+            <a class="d-flex align-items-center py-2" href="{{ route('precedents.saved') }}">
                 <svg class="mp-icon mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z" /></svg>
                 Meus salvos
             </a>

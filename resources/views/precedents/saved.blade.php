@@ -2,7 +2,7 @@
 
 @section ('content')
 
-    <h2 class="mp-heading">Precedentes</h2>
+    <h2 class="mp-heading">Meus salvos</h2>
     <p class="mp-text-meta">({{ count($precedents) }} resultados)</p>
 
     <div class="py-4">

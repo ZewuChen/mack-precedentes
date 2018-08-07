@@ -16,7 +16,7 @@
         </div>
     @endif
 
-        <div class="mr-5 border border-primary">
+        <div class="mr-5">
             <form class="form" method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data">
             @csrf
             @method ('PUT')
@@ -68,7 +68,7 @@
         </div>
 
     @if( $user->password != null) 
-        <div class="mr-5 border border-primary">
+        <div class="mr-5">
             <form class="form" method="POST" action="{{ route('user.password') }}" >
                 @csrf
 

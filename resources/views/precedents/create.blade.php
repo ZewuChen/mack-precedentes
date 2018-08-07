@@ -2,11 +2,11 @@
 
 @section ('content')
 
-    <div class="py-5">
+    <div class="py-4">
         <h2 class="mp-heading">Novo Precedente</h2>
         
-        <form class="form" method="post" action="{{ route('precedent.create') }}" >
-        @csrf
+        <form class="form" method="post" action="{{ route('precedents.store') }}" >
+            @csrf
 
         @if( isset($errors) && count($errors) > 0) 
             <div class="alert alert-danger">
@@ -135,8 +135,7 @@
                 </label>                
             </div> 
 
-
-            <button class="btn btn-primary btn-add">Cadastrar</button>
+            <button class="mp-button--primary">Cadastrar</button>
         </form>
     
     </div>

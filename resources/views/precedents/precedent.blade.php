@@ -1,5 +1,5 @@
 <article class="py-4 mp-border-between">
-    <a class="mp-text-small" href="{{ route('precedent.show', $precedent) }}">
+    <a class="mp-text-small" href="{{ route('precedents.show', $precedent) }}">
         {{ $precedent->type->name }}; {{ $precedent->number }}
     </a>
 
@@ -91,6 +91,6 @@
             {{ Form::close() }}
         </div>
 
-        <a class="mp-button--primary" href="{{ route('precedent.show', $precedent) }}">Ler mais</a>
+        <a class="mp-button--primary" href="{{ route('precedents.show', $precedent) }}">Ler mais</a>
     </div>
 </article>

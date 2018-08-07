@@ -4311,7 +4311,7 @@ button.bg-dark:focus {
 .d-table-cell {
   display: table-cell !important; }
 
-.d-flex, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
+.d-flex, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden {
   display: flex !important; }
 
 .d-inline-flex {
@@ -4513,7 +4513,7 @@ button.bg-dark:focus {
 .justify-content-end {
   justify-content: flex-end !important; }
 
-.justify-content-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
+.justify-content-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden {
   justify-content: center !important; }
 
 .justify-content-between {
@@ -4528,7 +4528,7 @@ button.bg-dark:focus {
 .align-items-end {
   align-items: flex-end !important; }
 
-.align-items-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
+.align-items-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden {
   align-items: center !important; }
 
 .align-items-baseline {
@@ -5087,7 +5087,7 @@ button.bg-dark:focus {
 .mp-tag {
   margin-bottom: 0.25rem !important; }
 
-.ml-1, .mp-button + .mp-button, .mp-button-icon + .mp-button, .mp-form-icon + .mp-button, .mp-button-text + .mp-button, .mp-button--link + .mp-button, .mp-button--primary + .mp-button, .mp-button--outline + .mp-button, .mp-button--transparent + .mp-button, .mp-button + .mp-button-icon, .mp-button-icon + .mp-button-icon, .mp-form-icon + .mp-button-icon, .mp-button-text + .mp-button-icon, .mp-button--link + .mp-button-icon, .mp-button--primary + .mp-button-icon, .mp-button--outline + .mp-button-icon, .mp-button--transparent + .mp-button-icon, .mp-button + .mp-form-icon, .mp-button-icon + .mp-form-icon, .mp-form-icon + .mp-form-icon, .mp-button-text + .mp-form-icon, .mp-button--link + .mp-form-icon, .mp-button--primary + .mp-form-icon, .mp-button--outline + .mp-form-icon, .mp-button--transparent + .mp-form-icon, .mp-button + .mp-button-text, .mp-button-icon + .mp-button-text, .mp-form-icon + .mp-button-text, .mp-button-text + .mp-button-text, .mp-button--link + .mp-button-text, .mp-button--primary + .mp-button-text, .mp-button--outline + .mp-button-text, .mp-button--transparent + .mp-button-text, .mp-button + .mp-button--link, .mp-button-icon + .mp-button--link, .mp-form-icon + .mp-button--link, .mp-button-text + .mp-button--link, .mp-button--link + .mp-button--link, .mp-button--primary + .mp-button--link, .mp-button--outline + .mp-button--link, .mp-button--transparent + .mp-button--link, .mp-button + .mp-button--primary, .mp-button-icon + .mp-button--primary, .mp-form-icon + .mp-button--primary, .mp-button-text + .mp-button--primary, .mp-button--link + .mp-button--primary, .mp-button--primary + .mp-button--primary, .mp-button--outline + .mp-button--primary, .mp-button--transparent + .mp-button--primary, .mp-button + .mp-button--outline, .mp-button-icon + .mp-button--outline, .mp-form-icon + .mp-button--outline, .mp-button-text + .mp-button--outline, .mp-button--link + .mp-button--outline, .mp-button--primary + .mp-button--outline, .mp-button--outline + .mp-button--outline, .mp-button--transparent + .mp-button--outline, .mp-button + .mp-button--transparent, .mp-button-icon + .mp-button--transparent, .mp-form-icon + .mp-button--transparent, .mp-button-text + .mp-button--transparent, .mp-button--link + .mp-button--transparent, .mp-button--primary + .mp-button--transparent, .mp-button--outline + .mp-button--transparent, .mp-button--transparent + .mp-button--transparent,
+.ml-1, .mp-button + .mp-button, .mp-button-icon + .mp-button, .mp-form-icon + .mp-button, .mp-button-text + .mp-button, .mp-button--link + .mp-button, .mp-button--primary + .mp-button, .mp-button--outline + .mp-button, .mp-button--transparent + .mp-button, .mp-button--inline + .mp-button, .mp-button--inline-golden + .mp-button, .mp-button + .mp-button-icon, .mp-button-icon + .mp-button-icon, .mp-form-icon + .mp-button-icon, .mp-button-text + .mp-button-icon, .mp-button--link + .mp-button-icon, .mp-button--primary + .mp-button-icon, .mp-button--outline + .mp-button-icon, .mp-button--transparent + .mp-button-icon, .mp-button--inline + .mp-button-icon, .mp-button--inline-golden + .mp-button-icon, .mp-button + .mp-form-icon, .mp-button-icon + .mp-form-icon, .mp-form-icon + .mp-form-icon, .mp-button-text + .mp-form-icon, .mp-button--link + .mp-form-icon, .mp-button--primary + .mp-form-icon, .mp-button--outline + .mp-form-icon, .mp-button--transparent + .mp-form-icon, .mp-button--inline + .mp-form-icon, .mp-button--inline-golden + .mp-form-icon, .mp-button + .mp-button-text, .mp-button-icon + .mp-button-text, .mp-form-icon + .mp-button-text, .mp-button-text + .mp-button-text, .mp-button--link + .mp-button-text, .mp-button--primary + .mp-button-text, .mp-button--outline + .mp-button-text, .mp-button--transparent + .mp-button-text, .mp-button--inline + .mp-button-text, .mp-button--inline-golden + .mp-button-text, .mp-button + .mp-button--link, .mp-button-icon + .mp-button--link, .mp-form-icon + .mp-button--link, .mp-button-text + .mp-button--link, .mp-button--link + .mp-button--link, .mp-button--primary + .mp-button--link, .mp-button--outline + .mp-button--link, .mp-button--transparent + .mp-button--link, .mp-button--inline + .mp-button--link, .mp-button--inline-golden + .mp-button--link, .mp-button + .mp-button--primary, .mp-button-icon + .mp-button--primary, .mp-form-icon + .mp-button--primary, .mp-button-text + .mp-button--primary, .mp-button--link + .mp-button--primary, .mp-button--primary + .mp-button--primary, .mp-button--outline + .mp-button--primary, .mp-button--transparent + .mp-button--primary, .mp-button--inline + .mp-button--primary, .mp-button--inline-golden + .mp-button--primary, .mp-button + .mp-button--outline, .mp-button-icon + .mp-button--outline, .mp-form-icon + .mp-button--outline, .mp-button-text + .mp-button--outline, .mp-button--link + .mp-button--outline, .mp-button--primary + .mp-button--outline, .mp-button--outline + .mp-button--outline, .mp-button--transparent + .mp-button--outline, .mp-button--inline + .mp-button--outline, .mp-button--inline-golden + .mp-button--outline, .mp-button + .mp-button--transparent, .mp-button-icon + .mp-button--transparent, .mp-form-icon + .mp-button--transparent, .mp-button-text + .mp-button--transparent, .mp-button--link + .mp-button--transparent, .mp-button--primary + .mp-button--transparent, .mp-button--outline + .mp-button--transparent, .mp-button--transparent + .mp-button--transparent, .mp-button--inline + .mp-button--transparent, .mp-button--inline-golden + .mp-button--transparent, .mp-button + .mp-button--inline, .mp-button-icon + .mp-button--inline, .mp-form-icon + .mp-button--inline, .mp-button-text + .mp-button--inline, .mp-button--link + .mp-button--inline, .mp-button--primary + .mp-button--inline, .mp-button--outline + .mp-button--inline, .mp-button--transparent + .mp-button--inline, .mp-button--inline + .mp-button--inline, .mp-button--inline-golden + .mp-button--inline, .mp-button + .mp-button--inline-golden, .mp-button-icon + .mp-button--inline-golden, .mp-form-icon + .mp-button--inline-golden, .mp-button-text + .mp-button--inline-golden, .mp-button--link + .mp-button--inline-golden, .mp-button--primary + .mp-button--inline-golden, .mp-button--outline + .mp-button--inline-golden, .mp-button--transparent + .mp-button--inline-golden, .mp-button--inline + .mp-button--inline-golden, .mp-button--inline-golden + .mp-button--inline-golden,
 .mx-1 {
   margin-left: 0.25rem !important; }
 
@@ -5190,7 +5190,9 @@ button.bg-dark:focus {
   padding: 0.25rem !important; }
 
 .pt-1,
-.py-1 {
+.py-1,
+.mp-button--inline,
+.mp-button--inline-golden {
   padding-top: 0.25rem !important; }
 
 .pr-1,
@@ -5198,7 +5200,9 @@ button.bg-dark:focus {
   padding-right: 0.25rem !important; }
 
 .pb-1,
-.py-1 {
+.py-1,
+.mp-button--inline,
+.mp-button--inline-golden {
   padding-bottom: 0.25rem !important; }
 
 .pl-1,
@@ -5245,6 +5249,8 @@ button.bg-dark:focus {
 .pr-3,
 .px-3,
 .mp-button--transparent,
+.mp-button--inline,
+.mp-button--inline-golden,
 .mp-tag,
 .mp-nav__item,
 .mp-nav__item--selected,
@@ -5268,6 +5274,8 @@ button.bg-dark:focus {
 .pl-3,
 .px-3,
 .mp-button--transparent,
+.mp-button--inline,
+.mp-button--inline-golden,
 .mp-tag,
 .mp-nav__item,
 .mp-nav__item--selected,
@@ -6409,7 +6417,7 @@ button.bg-dark:focus {
 .font-weight-normal {
   font-weight: 400 !important; }
 
-.font-weight-bold, .mp-text-bold, .mp-heading {
+.font-weight-bold, .mp-text-bold, .mp-heading, .mp-button--inline, .mp-button--inline-golden {
   font-weight: 700 !important; }
 
 .font-italic {
@@ -6595,7 +6603,7 @@ a {
   font-family: "Nunito", sans-serif; }
 
 /***** Colors **** */
-.mp-text-secondary, .mp-text-meta, .mp-nav__item, .mp-nav__item--selected, .mp-nav__item--selected a, .mp-nav__item a--selected, .mp-nav__item a--selected a, .mp-nav__item a {
+.mp-text-secondary, .mp-text-meta, .mp-button--inline, .mp-button--inline-golden, .mp-nav__item, .mp-nav__item--selected, .mp-nav__item--selected a, .mp-nav__item a--selected, .mp-nav__item a--selected a, .mp-nav__item a {
   color: rgba(0, 0, 0, 0.54); }
 
 /***** Types **** */
@@ -6632,13 +6640,13 @@ a {
     max-width: 100px;
     height: auto; }
 
-.mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
+.mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden {
   cursor: pointer;
   border: none;
   outline: none;
   text-decoration: none;
   transition: 0.04s all ease; }
-  .mp-button:focus, .mp-button-icon:focus, .mp-form-icon:focus, .mp-button-text:focus, .mp-button--link:focus, .mp-button--primary:focus, .mp-button--outline:focus, .mp-button--transparent:focus {
+  .mp-button:focus, .mp-button-icon:focus, .mp-form-icon:focus, .mp-button-text:focus, .mp-button--link:focus, .mp-button--primary:focus, .mp-button--outline:focus, .mp-button--transparent:focus, .mp-button--inline:focus, .mp-button--inline-golden:focus {
     outline: none; }
   .mp-button-icon, .mp-form-icon {
     background: transparent;
@@ -6667,12 +6675,20 @@ a {
     color: #03A9F4;
     border: 1px solid #03A9F4; }
     .mp-button--outline:hover {
+      text-decoration: none;
       background: #F8F8FB; }
   .mp-button--transparent {
     border-radius: 40px;
     background: transparent; }
     .mp-button--transparent:hover {
       background: rgba(0, 0, 0, 0.04); }
+  .mp-button--inline, .mp-button--inline-golden {
+    border-radius: 40px;
+    background: transparent; }
+    .mp-button--inline:hover, .mp-button--inline-golden:hover {
+      background: rgba(0, 0, 0, 0.04); }
+  .mp-button--inline-golden {
+    color: #FFB74D; }
 
 .mp-flash {
   position: fixed;

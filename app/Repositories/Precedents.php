@@ -29,9 +29,9 @@ class Precedents extends Repository
         return Precedent::all();
     }
 
-    public function fetchSaves()
+    public function savedBy(User $user)
     {
-        return auth()->user()->saves;
+        return $user->saves;
     }
 
     public function fetchMy()
