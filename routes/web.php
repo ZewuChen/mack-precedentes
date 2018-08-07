@@ -8,17 +8,19 @@ Route::group(['prefix' => 'precedentes'], function () {
     Route::get('{precedent}', 'PrecedentController@show')->name('precedent.show');
 });
 
+Route::resource('precedents', 'PrecedentController')
+    ->only('destroy');
+
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/', 'UserController@index')->name('user.index');
     Route::put('/update', 'UserController@update')->name('user.update');
     Route::post('/password', 'UserController@password')->name('user.password');
-    Route::get('/saves', 'SavesController@index')->name('save.index');
+    Route::get('/saved', 'SavesController@index')->name('save.index');
     Route::get('/meus-precedentes', 'SavesController@myPrecedents')->name('precedent.my');
-    Route::post('/saves', 'SavesController@store')->name('precedent.save');
-    Route::post('/saves/destroy', 'SavesController@destroy')->name('save.destroy');
 });
 
-
+Route::post('precedents/{precedent}/save', 'SavesController@save')->name('precedents.save');
+Route::post('precedents/{precedent}/unsave', 'SavesController@unsave')->name('precedents.unsave');
 
 // Precedent Types
 Route::resource('types', 'PrecedentTypeController')
@@ -38,16 +40,19 @@ Route::patch('comments/{comment}/approve', 'CommentController@approve')
 Route::resource('comments', 'CommentController')
     ->only('show', 'store', 'destroy');
 
-Route::group(['prefix' => 'colecoes'], function () {
-    Route::post('new', 'CollectionController@new')->name('collection.new');
-    Route::post('create/{precedent}', 'CollectionController@store')->name('collection.create');
-    Route::post('destroy/{precedent}', 'CollectionController@destroy')->name('collection.destroy');
-    Route::get('{collection}', 'CollectionController@show')->name('collection.show');
+// Collections
+Route::group(['prefix' => 'collections'], function () {
+    Route::post('{collection}/add', 'CollectionController@add')->name('collections.add');
+    Route::post('new', 'CollectionController@new')->name('collections.new');
+    Route::post('destroy/{precedent}', 'CollectionController@destroy')->name('collections.destroy');
 });
+Route::resource('collections', 'CollectionController')
+    ->only('store', 'show');
 
 Auth::routes();
 
 Route::get('/redirect', 'FacebookController@redirect')->name('facebook.login');
 Route::get('/callback', 'FacebookController@callback');
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')
+    ->name('home');

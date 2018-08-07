@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Precedent::class)->withTimestamps();
     }
+
+    public function hasSaved(Precedent $precedent)
+    {
+        return $this->saves->contains($precedent);
+    }
 }

@@ -60,8 +60,7 @@ class Precedent extends Model
     }
 
     public function has(Precedent $precedent)
-    {
-        
+    {        
         $contain = $precedent->saves->contains(Auth::user()->id); 
 
         return $contain;

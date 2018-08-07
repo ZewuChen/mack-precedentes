@@ -8,33 +8,24 @@ use App\PrecedentType;
 use App\Court;
 use App\Collection;
 use App\Repositories\Precedents;
-use App\Repositories\PrecedentsTypes;
 use App\Repositories\Courts;
-use App\Repositories\Collections;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PrecedentController extends Controller
 {
     protected $precedents;
-    protected $precedentsTypes;
-    protected $courts;
-    protected $collections;
 
-    public function __construct(Precedents $precedents, PrecedentsTypes $precedentsTypes, Courts $courts, Collections $collections)
+    public function __construct(Precedents $precedents)
     {
         $this->precedents = $precedents;
-        $this->precedentsTypes = $precedentsTypes;
-        $this->courts = $courts;
-        $this->collections = $collections;
     }
 
     public function index()
     {
         $precedents = $this->precedents->fetchAll();
-        $collections =  $this->collections->fetchAll();
 
-        return view('precedents.index', compact('precedents', 'collections'));
+        return view('precedents.index', compact('precedents'));
     }
 
     public function show(Precedent $precedent)
@@ -68,21 +59,14 @@ class PrecedentController extends Controller
         
     }
 
-    public function destroy($id)
+    public function destroy(Precedent $precedent)
     {
-        $precedents = $this->$precedents->find($id);
+        $this->authorize('delete', $precedent);
 
-        $delete = $precedents->delete();
+        $this->precedents->delete($precedent);
 
-        if($delete)
-        {
-            return redirect()->route('precedent.index');
-        }
-        else
-        {
-            return 'Falha ao excluir';
-        }
-
+        return back()
+            ->with('success', 'Precedente removido.');
     }
 
     public function search(Request $request)
@@ -97,11 +81,8 @@ class PrecedentController extends Controller
         {
             $precedents = Precedent::Filter($data)->get();
         }
-        
-        $collections =  $this->collections->fetchAll();
 
-        return view('precedents.index', compact('precedents', 'collections'));
-
+        return view('precedents.index', compact('precedents'));
     }
 
 }

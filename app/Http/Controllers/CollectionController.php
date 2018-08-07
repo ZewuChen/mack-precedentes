@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Collection;
+use App\Http\Requests\CollectionAddPrecedentRequest;
 use App\Precedent;
 use App\Repositories\Collections;
-use Illuminate\Support\Facades\Auth;
+use App\Repositories\Precedents;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CollectionController extends Controller
 {
@@ -19,17 +21,28 @@ class CollectionController extends Controller
 
     public function show(Collection $collection)
     {
-        $collections =  (new Collections)->fetchAll();
-        return view('collections.show', compact('collection', 'collections'));
+        return view('collections.show', compact('collection'));
+    }
+
+    public function add(CollectionAddPrecedentRequest $request, Collection $collection)
+    {
+        // authorize
+        
+        $precedent = (new Precedents)->find($request->get('precedent_id'));
+
+        $this->collections->add($collection, $precedent);
+
+        return back()
+            ->with('success', 'Precedente adicionado à coleção ' . $collection->name . '.');
     }
 
     public function new(Request $request)
     {
         $insert = $this->collections->create([
-                        'name' => $request->get('collection_name'),
-                        'slug' => str_slug($request->get('collection_name') . '-' . str_random(10)),
-                        'user_id' => Auth::user()->id
-            ]);
+            'name' => $request->get('collection_name'),
+            'slug' => str_slug($request->get('collection_name') . '-' . str_random(10)),
+            'user_id' => Auth::user()->id
+        ]);
 
         return redirect()->route('precedent.index');
     }
@@ -40,9 +53,9 @@ class CollectionController extends Controller
         if($request->get('collection_name') != null)
         {
             $insert = $this->collections->create([
-                        'name' => $request->get('collection_name'),
-                        'slug' => str_slug($request->get('collection_name') . '-' . str_random(10)),
-                        'user_id' => Auth::user()->id
+                'name' => $request->get('collection_name'),
+                'slug' => str_slug($request->get('collection_name') . '-' . str_random(10)),
+                'user_id' => Auth::user()->id
             ]);
 
             $request['collection_id'] = $insert['id'];
@@ -52,14 +65,7 @@ class CollectionController extends Controller
         $precedent = Precedent::find($request->get('precedent_id'));
         $insert = $precedent->collections()->attach($request->get('collection_id'));
 
-        if($insert)
-        {
-            return redirect()->route('precedent.index');
-        }
-        else
-        {
-            return redirect()->route('precedent.index');
-        }
+        return back();
     }
 
     public function destroy(Request $request)
@@ -67,13 +73,6 @@ class CollectionController extends Controller
         $precedent = Precedent::find($request->get('precedent_id'));
         $delete = $precedent->collections()->detach($request->get('collection_id'));
 
-        if($delete)
-        {
-            return redirect()->back();
-        }
-        else
-        {
-            return 'Erro';
-        }
+        return back();
     }
 }

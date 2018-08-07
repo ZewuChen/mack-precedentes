@@ -6,25 +6,8 @@
         <h2 class="mp-heading">Precedentes</h2>
 
         <p class="text-secondary">
-            <small>
-                ({{ count($precedents) }} resultados)
-            </small>
+            <small>({{ count($precedents) }} resultados)</small>
         </p>
-
-        <div class="mr-5 border border-danger">
-            <form class="form form-inline" method="POST" action="{{ route('collection.new') }}" >
-                @csrf
-
-                <div class="form-group">                               
-                    <label>
-                        <input type="text" class="form-control" name="collection_name">   
-                    </label>                
-                </div>
-
-                <button class="btn btn-info btn-add">Nova Coleção</button>
-
-            </form>
-        </div>
 
         {{-- <div class="mr-5 border border-primary">
             <form class="form" method="POST" action="{{ route('precedent.search') }}" >

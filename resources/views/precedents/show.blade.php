@@ -2,16 +2,14 @@
 
 @section ('content')
 
-    <h1>{{ $precedent->type->name }}; {{ $precedent->number }}</h1>
-    <div class="mt-4 alert alert-secondary">{{ $precedent->body }}</div>
+    <h1 class="mp-heading">{{ $precedent->type->name }}; {{ $precedent->number }}</h1>
+    <div class="mp-text-serif">{{ $precedent->body }}</div>
 
-    <p class="text-secondary">
-        <small>Emitido em <a href="{{ route('courts.show', $precedent->court) }}">{{ $precedent->court->alias }}</a> {{ (new Carbon($precedent->created_at))->diffForHumans() }}</small>
-    </p>
+    <p class="mp-text-meta">Emitido em <a href="{{ route('courts.show', $precedent->court) }}">{{ $precedent->court->alias }}</a> {{ $precedent->created_at->diffForHumans() }}</p>
 
     <div>
         @foreach ($precedent->tags as $tag)
-            @include ('tags.tag')
+            <a class="mp-tag" href="{{ route('tags.show', $tag) }}">{{ $tag->name }}</a>
         @endforeach
     </div>
 
@@ -41,7 +39,7 @@
                             <div class="row">
                                 <div class="col-10">
                                     <p class="text-secondary">
-                                        <small>{{ $comment->user->name }} escreveu um <a href="{{ route('comments.show', $comment) }}">comentário</a> {{ (new Carbon($comment->created_at))->diffForHumans() }}</small>
+                                        <small>{{ $comment->user->name }} escreveu um <a href="{{ route('comments.show', $comment) }}">comentário</a> {{ $comment->created_at->diffForHumans() }}</small>
                                     </p>
                                     {{ $comment->body }}
                                 </div>

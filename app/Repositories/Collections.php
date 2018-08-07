@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Collection;
+use App\Precedent;
 
 class Collections extends Repository
 {
@@ -11,9 +12,13 @@ class Collections extends Repository
         return Collection::ordered()->get();
     }
 
-    public function create($data)
+    public function add(Collection $collection, Precedent $precedent)
     {
-    	return Collection::create($data);
+        $collection->precedents()->save($precedent);
     }
 
+    public function create($data)
+    {
+        return Collection::create($data);
+    }
 }

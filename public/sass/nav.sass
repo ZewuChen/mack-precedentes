@@ -1,42 +1,47 @@
 .mp-nav
+    @extend .py-4
     width: 300px
-    max-width: 100%
+    max-width: 90%
     position: fixed
     top: 0
     bottom: 0
     left: 0
-    box-shadow: 0 3px 39px rgba($purple, 0.14)
     overflow-y: auto
-    padding-bottom: 200px
     background: $white
+    box-shadow: 0 3px 39px rgba($purple, 0.14)
 
     &__item,
     &__item a
-        @include text-secondary
+        @extend .mp-text-secondary
+        @extend .px-4
+        position: relative
 
         svg
-            fill: rgba(0, 0, 0, 0.54)
+            @extend .mp-icon--dark
 
         &:hover
-            @include text-green
+            color: $green
+            text-decoration: none
 
             svg
-                fill: $green
+                @extend .mp-icon--green
 
         &--selected,
         &--selected a,
-            @extends .mp-nav__item
-            @include text-green
+            @extend .mp-nav__item
+            color: $green
 
             svg
-                fill: $green
+                @extend .mp-icon--green
 
             &:before
-                content: ''
-                display: block
-                background: $green
-                // width: 30px
-                position: absolute
-                left: 0
-                top: 0
-                height: 100%
+                // content: ''
+                // display: block
+                // position: absolute
+                // background: $green
+                // left: 0
+                // top: 0
+                // top: 0
+                // bottom: 0
+                // width: 10px
+                // height: 100%

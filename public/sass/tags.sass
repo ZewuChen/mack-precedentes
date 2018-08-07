@@ -1,8 +1,17 @@
 .mp-tag
+    @extend .mp-text-small
+    @extend .py-2
+    @extend .px-3
+    @extend .my-1
+    display: inline-block
     background: $lightgray
-    padding: 0.2em 1em
+    color: rgba($black, 0.54)
     border-radius: 40px
     transition: 0.04s all ease-in
 
     &:hover
+        color: rgba($black, 0.54)
         background: darken($lightgray, 3%)
+
+    + .mp-tag
+        @extend .ml-2

@@ -22,13 +22,26 @@
         </form>
     @endauth
 
-    <a href="{{ route('user.index') }}"><input type="submit" value="Profile"></a>
+    {{-- <a href="{{ route('user.index') }}"><input type="submit" value="Profile"></a> --}}
     
     <div class="container">
-        <img class="mp-img--48x48" src="https://randomuser.me/api/portraits/men/32.jpg">
+        {{-- <img class="mp-img--48x48" src="https://randomuser.me/api/portraits/men/32.jpg"> --}}
         @yield ('content')
         
     </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                $('.mp-flash').css('display', 'none');
+            }, 6000);
+        });
+    </script>
+
+    @include ('flash')
 
 </body>
 </html>

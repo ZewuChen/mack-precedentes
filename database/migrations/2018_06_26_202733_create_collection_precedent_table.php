@@ -15,11 +15,12 @@ class CreateCollectionPrecedentTable extends Migration
     {
         Schema::create('collection_precedent', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
 
             $table->unsignedInteger('collection_id');
             $table->unsignedInteger('precedent_id');
 
+            $table->timestamps();
+            
             $table->unique(['collection_id', 'precedent_id']);
         });
     }

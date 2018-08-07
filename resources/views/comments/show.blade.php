@@ -2,21 +2,28 @@
 
 @section ('content')
 
-    <h1>Comentário em resposta a <a href="{{ route('precedent.show', $comment->precedent) }}">{{ $comment->precedent->number }}</a></h1>
-    <div><strong>Tese:</strong> {{ $comment->precedent->body }}</div>
+    <h1 class="mp-heading">
+        Comentário em resposta a <a href="{{ route('precedent.show', $comment->precedent) }}">{{ $comment->precedent->number }}</a>
+    </h1>
+    <div class="mp-text-serif mp-text-secondary"><strong>Tese:</strong> {{ $comment->precedent->body }}</div>
 
-    <div class="mt-3 alert alert-secondary">{{ $comment->body }}</div>
+    <div class="mp-text-serif">{{ $comment->body }}</div>
 
-    <p class="text-secondary">
-        <small>Publicado {{ (new Carbon($comment->created_at))->diffForHumans() }} por {{ $comment->user->name }}</small>
-    </p>
+    <div class="mp-text-meta">
+        <img class="mp-image--36x36 mp-rounded" src="https://randomuser.me/api/portraits/men/43.jpg">
+        <p>Publicado {{ $comment->created_at->diffForHumans() }} por {{ $comment->user->name }}</p>
+    </div>
 
     @if ($comment->file)
-        <a href="{{ asset('storage/' . $comment->file) }}" download>Baixar anexo</a>
+        <div class="d-flex justify-content-start">
+            <a class="mp-button--outline" href="{{ asset('storage/' . $comment->file) }}" download>Baixar anexo</a>
+        </div>
     @endif
 
+    <hr>
+
     {{ Form::open(['route' => array('comments.destroy', $comment), 'method' => 'delete']) }}
-        {{ Form::submit('Deletar') }}
+        <input type="submit" value="Deletar">
     {{ Form::close() }}
 
 @endsection
