@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Collection;
 use App\Http\Requests\CollectionAddPrecedentRequest;
+use App\Http\Requests\CollectionCreateRequest;
 use App\Precedent;
 use App\Repositories\Collections;
 use App\Repositories\Precedents;
@@ -38,17 +39,6 @@ class CollectionController extends Controller
 
     public function new(Request $request)
     {
-        $insert = $this->collections->create([
-            'name' => $request->get('collection_name'),
-            'slug' => str_slug($request->get('collection_name') . '-' . str_random(10)),
-            'user_id' => Auth::user()->id
-        ]);
-
-        return redirect()->route('precedent.index');
-    }
-
-    public function store(Request $request)
-    {
         //Cria a nova coleção e já seta o ID da coleção no Request
         if($request->get('collection_name') != null)
         {
@@ -66,6 +56,20 @@ class CollectionController extends Controller
         $insert = $precedent->collections()->attach($request->get('collection_id'));
 
         return back();
+        
+    }
+
+    public function store(CollectionCreateRequest $request)
+    {
+        // authorize
+        
+        $collection = $this->collections->create([
+            'name' => $request->get('name'),
+            'user_id' => Auth::user()->id,
+        ]);
+
+        return back()
+            ->with('success', 'Coleção ' . $collection->name . ' criada.');
     }
 
     public function destroy(Request $request)

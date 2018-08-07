@@ -16,7 +16,7 @@ Route::group(['prefix' => 'profile'], function () {
     Route::put('/update', 'UserController@update')->name('user.update');
     Route::post('/password', 'UserController@password')->name('user.password');
     Route::get('/saved', 'SavesController@index')->name('save.index');
-    Route::get('/meus-precedentes', 'SavesController@myPrecedents')->name('precedent.my');
+    Route::get('/meus-precedentes', 'SavesController@myPrecedents')->name('precedents.mine');
 });
 
 Route::post('precedents/{precedent}/save', 'SavesController@save')->name('precedents.save');

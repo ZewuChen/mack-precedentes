@@ -2,7 +2,7 @@
 
 @section ('content')
 
-    <h1>Olá {{ $user->name }}!</h1>
+    <h2>Olá {{ $user->name }}!</h2>
 
     <div class="list-group">
 

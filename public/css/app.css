@@ -1398,7 +1398,7 @@ pre {
   .table-responsive > .table-bordered {
     border: 0; }
 
-.form-control, .mp-form-control {
+.form-control {
   display: block;
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -1410,25 +1410,25 @@ pre {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
-  .form-control::-ms-expand, .mp-form-control::-ms-expand {
+  .form-control::-ms-expand {
     background-color: transparent;
     border: 0; }
-  .form-control:focus, .mp-form-control:focus {
+  .form-control:focus {
     color: #495057;
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
-  .form-control::placeholder, .mp-form-control::placeholder {
+  .form-control::placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control:disabled, .mp-form-control:disabled, .form-control[readonly], [readonly].mp-form-control {
+  .form-control:disabled, .form-control[readonly] {
     background-color: #e9ecef;
     opacity: 1; }
 
-select.form-control:not([size]):not([multiple]), select.mp-form-control:not([size]):not([multiple]) {
+select.form-control:not([size]):not([multiple]) {
   height: calc(2.25rem + 2px); }
-select.form-control:focus::-ms-value, select.mp-form-control:focus::-ms-value {
+select.form-control:focus::-ms-value {
   color: #495057;
   background-color: #fff; }
 
@@ -1466,11 +1466,11 @@ select.form-control:focus::-ms-value, select.mp-form-control:focus::-ms-value {
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0; }
-  .form-control-plaintext.form-control-sm, .input-group-sm > .form-control-plaintext.form-control, .input-group-sm > .form-control-plaintext.mp-form-control,
+  .form-control-plaintext.form-control-sm, .input-group-sm > .form-control-plaintext.form-control,
   .input-group-sm > .input-group-prepend > .form-control-plaintext.input-group-text,
   .input-group-sm > .input-group-append > .form-control-plaintext.input-group-text,
   .input-group-sm > .input-group-prepend > .form-control-plaintext.btn,
-  .input-group-sm > .input-group-append > .form-control-plaintext.btn, .form-control-plaintext.form-control-lg, .input-group-lg > .form-control-plaintext.form-control, .input-group-lg > .form-control-plaintext.mp-form-control,
+  .input-group-sm > .input-group-append > .form-control-plaintext.btn, .form-control-plaintext.form-control-lg, .input-group-lg > .form-control-plaintext.form-control,
   .input-group-lg > .input-group-prepend > .form-control-plaintext.input-group-text,
   .input-group-lg > .input-group-append > .form-control-plaintext.input-group-text,
   .input-group-lg > .input-group-prepend > .form-control-plaintext.btn,
@@ -1478,7 +1478,7 @@ select.form-control:focus::-ms-value, select.mp-form-control:focus::-ms-value {
     padding-right: 0;
     padding-left: 0; }
 
-.form-control-sm, .input-group-sm > .form-control, .input-group-sm > .mp-form-control,
+.form-control-sm, .input-group-sm > .form-control,
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
 .input-group-sm > .input-group-prepend > .btn,
@@ -1488,14 +1488,14 @@ select.form-control:focus::-ms-value, select.mp-form-control:focus::-ms-value {
   line-height: 1.5;
   border-radius: 0.2rem; }
 
-select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.form-control:not([size]):not([multiple]), .input-group-sm > select.mp-form-control:not([size]):not([multiple]),
+select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.form-control:not([size]):not([multiple]),
 .input-group-sm > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
 .input-group-sm > .input-group-append > select.input-group-text:not([size]):not([multiple]),
 .input-group-sm > .input-group-prepend > select.btn:not([size]):not([multiple]),
 .input-group-sm > .input-group-append > select.btn:not([size]):not([multiple]) {
   height: calc(1.8125rem + 2px); }
 
-.form-control-lg, .input-group-lg > .form-control, .input-group-lg > .mp-form-control,
+.form-control-lg, .input-group-lg > .form-control,
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
 .input-group-lg > .input-group-prepend > .btn,
@@ -1505,7 +1505,7 @@ select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.for
   line-height: 1.5;
   border-radius: 0.3rem; }
 
-select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.form-control:not([size]):not([multiple]), .input-group-lg > select.mp-form-control:not([size]):not([multiple]),
+select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.form-control:not([size]):not([multiple]),
 .input-group-lg > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
 .input-group-lg > .input-group-append > select.input-group-text:not([size]):not([multiple]),
 .input-group-lg > .input-group-prepend > select.btn:not([size]):not([multiple]),
@@ -1576,20 +1576,18 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   background-color: rgba(40, 167, 69, 0.8);
   border-radius: .2rem; }
 
-.was-validated .form-control:valid, .was-validated .mp-form-control:valid, .form-control.is-valid, .is-valid.mp-form-control,
+.was-validated .form-control:valid, .form-control.is-valid,
 .was-validated .custom-select:valid,
 .custom-select.is-valid {
   border-color: #28a745; }
-  .was-validated .form-control:valid:focus, .was-validated .mp-form-control:valid:focus, .form-control.is-valid:focus, .is-valid.mp-form-control:focus,
+  .was-validated .form-control:valid:focus, .form-control.is-valid:focus,
   .was-validated .custom-select:valid:focus,
   .custom-select.is-valid:focus {
     border-color: #28a745;
     box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25); }
-  .was-validated .form-control:valid ~ .valid-feedback, .was-validated .mp-form-control:valid ~ .valid-feedback,
-  .was-validated .form-control:valid ~ .valid-tooltip,
-  .was-validated .mp-form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, .is-valid.mp-form-control ~ .valid-feedback,
+  .was-validated .form-control:valid ~ .valid-feedback,
+  .was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback,
   .form-control.is-valid ~ .valid-tooltip,
-  .is-valid.mp-form-control ~ .valid-tooltip,
   .was-validated .custom-select:valid ~ .valid-feedback,
   .was-validated .custom-select:valid ~ .valid-tooltip,
   .custom-select.is-valid ~ .valid-feedback,
@@ -1648,20 +1646,18 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   background-color: rgba(220, 53, 69, 0.8);
   border-radius: .2rem; }
 
-.was-validated .form-control:invalid, .was-validated .mp-form-control:invalid, .form-control.is-invalid, .is-invalid.mp-form-control,
+.was-validated .form-control:invalid, .form-control.is-invalid,
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
   border-color: #dc3545; }
-  .was-validated .form-control:invalid:focus, .was-validated .mp-form-control:invalid:focus, .form-control.is-invalid:focus, .is-invalid.mp-form-control:focus,
+  .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus,
   .was-validated .custom-select:invalid:focus,
   .custom-select.is-invalid:focus {
     border-color: #dc3545;
     box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); }
-  .was-validated .form-control:invalid ~ .invalid-feedback, .was-validated .mp-form-control:invalid ~ .invalid-feedback,
-  .was-validated .form-control:invalid ~ .invalid-tooltip,
-  .was-validated .mp-form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, .is-invalid.mp-form-control ~ .invalid-feedback,
+  .was-validated .form-control:invalid ~ .invalid-feedback,
+  .was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback,
   .form-control.is-invalid ~ .invalid-tooltip,
-  .is-invalid.mp-form-control ~ .invalid-tooltip,
   .was-validated .custom-select:invalid ~ .invalid-feedback,
   .was-validated .custom-select:invalid ~ .invalid-tooltip,
   .custom-select.is-invalid ~ .invalid-feedback,
@@ -1717,7 +1713,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
       flex-flow: row wrap;
       align-items: center;
       margin-bottom: 0; }
-    .form-inline .form-control, .form-inline .mp-form-control {
+    .form-inline .form-control {
       display: inline-block;
       width: auto;
       vertical-align: middle; }
@@ -2406,36 +2402,32 @@ tbody.collapse.show {
   flex-wrap: wrap;
   align-items: stretch;
   width: 100%; }
-  .input-group > .form-control, .input-group > .mp-form-control,
+  .input-group > .form-control,
   .input-group > .custom-select,
   .input-group > .custom-file {
     position: relative;
     flex: 1 1 auto;
     width: 1%;
     margin-bottom: 0; }
-    .input-group > .form-control:focus, .input-group > .mp-form-control:focus,
+    .input-group > .form-control:focus,
     .input-group > .custom-select:focus,
     .input-group > .custom-file:focus {
       z-index: 3; }
-    .input-group > .form-control + .form-control, .input-group > .mp-form-control + .form-control, .input-group > .form-control + .mp-form-control, .input-group > .mp-form-control + .mp-form-control,
+    .input-group > .form-control + .form-control,
     .input-group > .form-control + .custom-select,
-    .input-group > .mp-form-control + .custom-select,
     .input-group > .form-control + .custom-file,
-    .input-group > .mp-form-control + .custom-file,
     .input-group > .custom-select + .form-control,
-    .input-group > .custom-select + .mp-form-control,
     .input-group > .custom-select + .custom-select,
     .input-group > .custom-select + .custom-file,
     .input-group > .custom-file + .form-control,
-    .input-group > .custom-file + .mp-form-control,
     .input-group > .custom-file + .custom-select,
     .input-group > .custom-file + .custom-file {
       margin-left: -1px; }
-  .input-group > .form-control:not(:last-child), .input-group > .mp-form-control:not(:last-child),
+  .input-group > .form-control:not(:last-child),
   .input-group > .custom-select:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0; }
-  .input-group > .form-control:not(:first-child), .input-group > .mp-form-control:not(:first-child),
+  .input-group > .form-control:not(:first-child),
   .input-group > .custom-select:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
@@ -4319,7 +4311,7 @@ button.bg-dark:focus {
 .d-table-cell {
   display: table-cell !important; }
 
-.d-flex, .mp-button, .mp-button-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
+.d-flex, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
   display: flex !important; }
 
 .d-inline-flex {
@@ -4521,7 +4513,7 @@ button.bg-dark:focus {
 .justify-content-end {
   justify-content: flex-end !important; }
 
-.justify-content-center, .mp-button, .mp-button-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
+.justify-content-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
   justify-content: center !important; }
 
 .justify-content-between {
@@ -4536,7 +4528,7 @@ button.bg-dark:focus {
 .align-items-end {
   align-items: flex-end !important; }
 
-.align-items-center, .mp-button, .mp-button-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
+.align-items-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
   align-items: center !important; }
 
 .align-items-baseline {
@@ -5038,7 +5030,7 @@ button.bg-dark:focus {
 .w-75 {
   width: 75% !important; }
 
-.w-100 {
+.w-100, .mp-input, .mp-input--rounded {
   width: 100% !important; }
 
 .h-25 {
@@ -5095,7 +5087,7 @@ button.bg-dark:focus {
 .mp-tag {
   margin-bottom: 0.25rem !important; }
 
-.ml-1, .mp-button + .mp-button, .mp-button-icon + .mp-button, .mp-button-text + .mp-button, .mp-button--link + .mp-button, .mp-button--primary + .mp-button, .mp-button--outline + .mp-button, .mp-button--transparent + .mp-button, .mp-button + .mp-button-icon, .mp-button-icon + .mp-button-icon, .mp-button-text + .mp-button-icon, .mp-button--link + .mp-button-icon, .mp-button--primary + .mp-button-icon, .mp-button--outline + .mp-button-icon, .mp-button--transparent + .mp-button-icon, .mp-button + .mp-button-text, .mp-button-icon + .mp-button-text, .mp-button-text + .mp-button-text, .mp-button--link + .mp-button-text, .mp-button--primary + .mp-button-text, .mp-button--outline + .mp-button-text, .mp-button--transparent + .mp-button-text, .mp-button + .mp-button--link, .mp-button-icon + .mp-button--link, .mp-button-text + .mp-button--link, .mp-button--link + .mp-button--link, .mp-button--primary + .mp-button--link, .mp-button--outline + .mp-button--link, .mp-button--transparent + .mp-button--link, .mp-button + .mp-button--primary, .mp-button-icon + .mp-button--primary, .mp-button-text + .mp-button--primary, .mp-button--link + .mp-button--primary, .mp-button--primary + .mp-button--primary, .mp-button--outline + .mp-button--primary, .mp-button--transparent + .mp-button--primary, .mp-button + .mp-button--outline, .mp-button-icon + .mp-button--outline, .mp-button-text + .mp-button--outline, .mp-button--link + .mp-button--outline, .mp-button--primary + .mp-button--outline, .mp-button--outline + .mp-button--outline, .mp-button--transparent + .mp-button--outline, .mp-button + .mp-button--transparent, .mp-button-icon + .mp-button--transparent, .mp-button-text + .mp-button--transparent, .mp-button--link + .mp-button--transparent, .mp-button--primary + .mp-button--transparent, .mp-button--outline + .mp-button--transparent, .mp-button--transparent + .mp-button--transparent,
+.ml-1, .mp-button + .mp-button, .mp-button-icon + .mp-button, .mp-form-icon + .mp-button, .mp-button-text + .mp-button, .mp-button--link + .mp-button, .mp-button--primary + .mp-button, .mp-button--outline + .mp-button, .mp-button--transparent + .mp-button, .mp-button + .mp-button-icon, .mp-button-icon + .mp-button-icon, .mp-form-icon + .mp-button-icon, .mp-button-text + .mp-button-icon, .mp-button--link + .mp-button-icon, .mp-button--primary + .mp-button-icon, .mp-button--outline + .mp-button-icon, .mp-button--transparent + .mp-button-icon, .mp-button + .mp-form-icon, .mp-button-icon + .mp-form-icon, .mp-form-icon + .mp-form-icon, .mp-button-text + .mp-form-icon, .mp-button--link + .mp-form-icon, .mp-button--primary + .mp-form-icon, .mp-button--outline + .mp-form-icon, .mp-button--transparent + .mp-form-icon, .mp-button + .mp-button-text, .mp-button-icon + .mp-button-text, .mp-form-icon + .mp-button-text, .mp-button-text + .mp-button-text, .mp-button--link + .mp-button-text, .mp-button--primary + .mp-button-text, .mp-button--outline + .mp-button-text, .mp-button--transparent + .mp-button-text, .mp-button + .mp-button--link, .mp-button-icon + .mp-button--link, .mp-form-icon + .mp-button--link, .mp-button-text + .mp-button--link, .mp-button--link + .mp-button--link, .mp-button--primary + .mp-button--link, .mp-button--outline + .mp-button--link, .mp-button--transparent + .mp-button--link, .mp-button + .mp-button--primary, .mp-button-icon + .mp-button--primary, .mp-form-icon + .mp-button--primary, .mp-button-text + .mp-button--primary, .mp-button--link + .mp-button--primary, .mp-button--primary + .mp-button--primary, .mp-button--outline + .mp-button--primary, .mp-button--transparent + .mp-button--primary, .mp-button + .mp-button--outline, .mp-button-icon + .mp-button--outline, .mp-form-icon + .mp-button--outline, .mp-button-text + .mp-button--outline, .mp-button--link + .mp-button--outline, .mp-button--primary + .mp-button--outline, .mp-button--outline + .mp-button--outline, .mp-button--transparent + .mp-button--outline, .mp-button + .mp-button--transparent, .mp-button-icon + .mp-button--transparent, .mp-form-icon + .mp-button--transparent, .mp-button-text + .mp-button--transparent, .mp-button--link + .mp-button--transparent, .mp-button--primary + .mp-button--transparent, .mp-button--outline + .mp-button--transparent, .mp-button--transparent + .mp-button--transparent,
 .mx-1 {
   margin-left: 0.25rem !important; }
 
@@ -5245,13 +5237,21 @@ button.bg-dark:focus {
 .mp-button--link,
 .mp-button--primary,
 .mp-button--outline,
-.mp-flash {
+.mp-flash,
+.mp-input,
+.mp-input--rounded {
   padding-top: 1rem !important; }
 
 .pr-3,
 .px-3,
 .mp-button--transparent,
-.mp-tag {
+.mp-tag,
+.mp-nav__item,
+.mp-nav__item--selected,
+.mp-nav__item--selected a,
+.mp-nav__item a--selected,
+.mp-nav__item a--selected a,
+.mp-nav__item a {
   padding-right: 1rem !important; }
 
 .pb-3,
@@ -5260,13 +5260,21 @@ button.bg-dark:focus {
 .mp-button--link,
 .mp-button--primary,
 .mp-button--outline,
-.mp-flash {
+.mp-flash,
+.mp-input,
+.mp-input--rounded {
   padding-bottom: 1rem !important; }
 
 .pl-3,
 .px-3,
 .mp-button--transparent,
-.mp-tag {
+.mp-tag,
+.mp-nav__item,
+.mp-nav__item--selected,
+.mp-nav__item--selected a,
+.mp-nav__item a--selected,
+.mp-nav__item a--selected a,
+.mp-nav__item a {
   padding-left: 1rem !important; }
 
 .p-4 {
@@ -5280,12 +5288,8 @@ button.bg-dark:focus {
 .pr-4,
 .px-4,
 .mp-flash,
-.mp-nav__item,
-.mp-nav__item--selected,
-.mp-nav__item--selected a,
-.mp-nav__item a--selected,
-.mp-nav__item a--selected a,
-.mp-nav__item a {
+.mp-input,
+.mp-input--rounded {
   padding-right: 1.5rem !important; }
 
 .pb-4,
@@ -5296,12 +5300,8 @@ button.bg-dark:focus {
 .pl-4,
 .px-4,
 .mp-flash,
-.mp-nav__item,
-.mp-nav__item--selected,
-.mp-nav__item--selected a,
-.mp-nav__item a--selected,
-.mp-nav__item a--selected a,
-.mp-nav__item a {
+.mp-input,
+.mp-input--rounded {
   padding-left: 1.5rem !important; }
 
 .p-5 {
@@ -6632,21 +6632,21 @@ a {
     max-width: 100px;
     height: auto; }
 
-.mp-button, .mp-button-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
+.mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent {
   cursor: pointer;
   border: none;
   outline: none;
   text-decoration: none;
   transition: 0.04s all ease; }
-  .mp-button:focus, .mp-button-icon:focus, .mp-button-text:focus, .mp-button--link:focus, .mp-button--primary:focus, .mp-button--outline:focus, .mp-button--transparent:focus {
+  .mp-button:focus, .mp-button-icon:focus, .mp-form-icon:focus, .mp-button-text:focus, .mp-button--link:focus, .mp-button--primary:focus, .mp-button--outline:focus, .mp-button--transparent:focus {
     outline: none; }
-  .mp-button-icon {
+  .mp-button-icon, .mp-form-icon {
     background: transparent;
     width: 36px;
     height: 36px;
     padding: 0;
     border-radius: 50%; }
-    .mp-button-icon:hover {
+    .mp-button-icon:hover, .mp-form-icon:hover {
       background: rgba(0, 0, 0, 0.04); }
   .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline {
     border-radius: 40px; }
@@ -6712,6 +6712,7 @@ a {
   top: 0;
   bottom: 0;
   left: 0;
+  z-index: 100;
   overflow-y: auto;
   background: #FFFFFF;
   box-shadow: 0 3px 39px rgba(74, 70, 141, 0.14); }
@@ -6722,5 +6723,25 @@ a {
       text-decoration: none; }
     .mp-nav__item--selected, .mp-nav__item--selected a, .mp-nav__item a--selected, .mp-nav__item--selected a--selected, .mp-nav__item a--selected a a--selected, .mp-nav__item a--selected a, .mp-nav__item--selected a--selected a {
       color: #66BB6A; }
+
+.mp-input, .mp-input--rounded {
+  border-radius: 4px;
+  border: 1px solid #e0e5e8; }
+  .mp-input--rounded {
+    border-radius: 40px; }
+  .mp-input:focus, .mp-input--rounded:focus, .mp-input:hover, .mp-input--rounded:hover {
+    outline: none;
+    border: 1px solid #c0cad1; }
+
+.mp-form-icon {
+  background: #03A9F4;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto; }
+  .mp-form-icon:hover {
+    background: #039be0; }
 
 /*# sourceMappingURL=app.css.map */

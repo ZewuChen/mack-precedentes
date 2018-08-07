@@ -2,9 +2,9 @@
 
 @section ('content')
 
-    <h1 class="mp-heading">
+    <h2 class="mp-heading">
         Comentário em resposta a <a href="{{ route('precedent.show', $comment->precedent) }}">{{ $comment->precedent->number }}</a>
-    </h1>
+    </h2>
     <div class="mp-text-serif mp-text-secondary"><strong>Tese:</strong> {{ $comment->precedent->body }}</div>
 
     <div class="mp-text-serif">{{ $comment->body }}</div>

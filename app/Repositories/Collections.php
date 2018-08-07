@@ -19,6 +19,9 @@ class Collections extends Repository
 
     public function create($data)
     {
-        return Collection::create($data);
+        return Collection::create([
+            'name' => $data['name'],
+            'user_id' => $data['user_id'],
+        ]);
     }
 }

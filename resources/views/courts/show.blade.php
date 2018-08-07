@@ -2,14 +2,12 @@
 
 @section ('content')
 
-    <h1>{{ $court->name }}</h1>
+    <h2 class="mp-heading">{{ $court->name }}</h2>
 
-    <div class="list-group">
-
+    <div class="py-5">
         @foreach ($court->precedents as $precedent)
             @include ('precedents.precedent', $precedent)
         @endforeach
-
     </div>
 
 @endsection

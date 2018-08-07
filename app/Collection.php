@@ -2,12 +2,15 @@
 
 namespace App;
 
+use App\Traits\WithSlug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Collection extends Model
 {
+    use WithSlug;
+    
     public $fillable = [
         'name', 'slug', 'is_public', 'user_id',
     ];
