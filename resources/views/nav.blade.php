@@ -63,7 +63,8 @@
 
     @guest
         <div class="my-5 px-4">
-            <a class="mp-button--primary" href="#">Inscreva-se</a>
+            <a class="mp-button--primary" href="{{ route('register') }}">Inscreva-se</a>
+            <a class="mp-button--outline mt-3" href="{{ route('login') }}">Login</a>
         </div>
     @endguest
 

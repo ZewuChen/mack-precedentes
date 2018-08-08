@@ -71,15 +71,12 @@ class PrecedentController extends Controller
 
     public function search(Request $request)
     {
-        $data = $request->except('_token');
+        $data = $request->all();
 
-        if(isset($data['data']))
-        {
-            $precedents = Precedent::search($data['data'])->Filter($data)->get();
-        }
-        else
-        {
-            $precedents = Precedent::Filter($data)->get();
+        if ($request->get('data')) {
+            $precedents = Precedent::search($data['data'])->filter($data)->get();
+        } else {
+            $precedents = Precedent::filter($data)->get();
         }
 
         return view('precedents.index', compact('precedents'));
