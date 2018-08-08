@@ -27,6 +27,6 @@ class FacebookController extends Controller
     {
         $user = $service->createOrGetUser(Socialite::driver('facebook')->user());
         auth()->login($user);
-        return redirect()->route('precedent.index');
+        return redirect()->route('precedents.index');
     }
 }

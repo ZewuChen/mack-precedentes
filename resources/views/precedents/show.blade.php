@@ -30,6 +30,7 @@
                     {{ Form::textarea('body', old('body'), array('class' => 'form-control')) }}
                 </div>
                 <div class="form-group">
+                    {{ Form::label('Documento (PDF) - opcional') }}
                     {{ Form::file('file', array('class' => 'form-control'))}}
                 </div>
                 {{ Form::hidden('precedent_id', $precedent->id) }}
@@ -48,7 +49,7 @@
 
             <div>
                 @foreach ($precedent->comments as $comment)
-                    @if ($comment->isApproved() || auth()->user()->hasRole('admin'))
+                    @if ($comment->isApproved() || (auth()->check() && auth()->user()->hasRole('admin')))
                         <article class="py-3">
                             <div class="row">
                                 <div class="col-9">

@@ -54,7 +54,7 @@ class PrecedentController extends Controller
         else
         {
             $insert = $this->precedents->create($data);
-            return redirect()->route('precedents.index');
+            return redirect()->route('precedents.show', $insert);
         }
         
     }

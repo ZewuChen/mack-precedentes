@@ -28,10 +28,12 @@
 
     <hr>
 
-    <div class="d-flex justify-content-end">
-        {{ Form::open(['route' => array('comments.destroy', $comment), 'method' => 'delete']) }}
-            <input class="mp-button--outline" type="submit" value="Apagar comentário">
-        {{ Form::close() }}
-    </div>
+    @can ('delete', $comment)
+        <div class="d-flex justify-content-end">
+            {{ Form::open(['route' => array('comments.destroy', $comment), 'method' => 'delete']) }}
+                <input class="mp-button--outline" type="submit" value="Apagar comentário">
+            {{ Form::close() }}
+        </div>
+    @endcan
 
 @endsection

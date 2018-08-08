@@ -11,14 +11,14 @@
 
             <div class="form-group">
                 <div class="row d-flex align-items-center">
-                    <label class="mp-heading col-2">Número</label>
+                    <label class="mp-heading col-2">Número*</label>
                     <input type="text" class="form-control col-5" name="number" value="{{ old('number') }}" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="row d-flex align-items-center">
-                    <label class="mp-heading col-2">Tribunal</label>
+                    <label class="mp-heading col-2">Tribunal*</label>
                    
                     <select name="court_id" class="form-control col-5">
                             @foreach($courts as $court)
@@ -28,15 +28,15 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <div class="row d-flex align-items-center">
                     <label class="mp-heading col-2">Ramo do direito</label>
                 </div>              
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <div class="row d-flex align-items-center">
-                    <label class="mp-heading col-2">Origem processual</label>
+                    <label class="mp-heading col-2">Origem processual*</label>
                     <select name="type_id" class="form-control col-5">    
                             @foreach($precedentsTypes as $precedentsType)
                                 <option value="{{ $precedentsType->id }}">{!! $precedentsType->name !!}</option>
@@ -45,12 +45,12 @@
                 </div>        
             </div>		
 
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <div class="row d-flex align-items-center">
                     <label class="mp-heading col-2">Tags</label>
                     <textarea name="" class="form-control col-5"></textarea>
                 </div>      
-            </div> 
+            </div>  --}}
 
             <div class="form-group">
                 <div class="row d-flex align-items-center">
@@ -103,7 +103,7 @@
 
             <div class="form-group">
                 <div class="row d-flex align-items-center">
-                    <label class="mp-heading col-sm-2">Tese</label>
+                    <label class="mp-heading col-sm-2">Tese*</label>
                     <textarea name="body" class="form-control col-8" required>{{ old('body') }}</textarea>
                 </div>
             </div> 

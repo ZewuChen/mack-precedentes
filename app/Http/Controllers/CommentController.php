@@ -62,8 +62,12 @@ class CommentController extends Controller
     {
         $this->authorize('delete', $comment);
 
+        $precedent = $comment->precedent;
+
         $this->comments->delete($comment);
 
-        return back();
+        return redirect()
+            ->route('precedents.show', $precedent)
+            ->with('success', 'Comentário removido com sucesso.');
     }
 }
