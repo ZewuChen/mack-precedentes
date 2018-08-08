@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PrecedentType extends Model
 {
+	public $fillable = ['name'];
+
     public function precedents()
     {
         return $this->hasMany(Precedent::class, 'type_id');

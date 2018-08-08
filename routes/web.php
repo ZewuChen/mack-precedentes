@@ -1,6 +1,8 @@
 <?php
 
 Route::group(['prefix' => 'precedentes'], function () {
+    Route::get('/excel', 'ExcelController@index')->name('excel.index');
+    Route::post('/excelImport', 'ExcelController@import')->name('excel.import');
     Route::get('/', 'PrecedentController@index')->name('precedent.index');
     Route::get('/create', 'PrecedentController@create')->name('precedent.create');
     Route::post('/store', 'PrecedentController@store');
@@ -16,11 +18,10 @@ Route::group(['prefix' => 'profile'], function () {
     Route::post('/password', 'UserController@password')->name('user.password');
     Route::get('/saves', 'SavesController@index')->name('save.index');
     Route::get('/meus-precedentes', 'SavesController@myPrecedents')->name('precedent.my');
-    Route::post('/saves', 'SavesController@store')->name('precedent.save');
+    Route::post('/savesasd', 'SavesController@store')->name('precedent.save');
     Route::post('/saves/destroy', 'SavesController@destroy')->name('save.destroy');
+
 });
-
-
 
 // Precedent Types
 Route::resource('types', 'PrecedentTypeController')

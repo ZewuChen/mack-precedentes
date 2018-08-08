@@ -11,4 +11,9 @@ class PrecedentsTypes extends Repository
         return PrecedentType::ordered()->get();
     }
 
+    public function create($data)
+    {
+    	return PrecedentType::create($data);
+    }
+
 }

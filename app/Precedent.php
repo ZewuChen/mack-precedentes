@@ -49,6 +49,11 @@ class Precedent extends Model
         return $this->belongsTo(PrecedentType::class);
     }
 
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
     public function collections()
     {
         return $this->belongsToMany(Collection::class)->withTimestamps();
