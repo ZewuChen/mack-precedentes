@@ -12,7 +12,8 @@ class CollectionPolicy
 
     public function view(User $user, Collection $collection)
     {
-        return true;
+        return $user->id == $collection->user_id
+            || $collection->isPublic();
     }
 
     public function create(User $user)

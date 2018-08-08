@@ -17,12 +17,12 @@ class PrecedentPolicy
 
     public function create(User $user)
     {
-        return true;
+        return $user->hasRole('admin');
     }
     
     public function update(User $user, Precedent $precedent)
     {
-        return true;
+        return $user->hasRole('admin');
     }
 
     public function delete(User $user, Precedent $precedent)

@@ -42,4 +42,9 @@ class Collection extends Model
     {
         return $query->where('user_id', Auth::user()->id);
     }
+
+    public function isPublic()
+    {
+        return $this->is_public;
+    }
 }

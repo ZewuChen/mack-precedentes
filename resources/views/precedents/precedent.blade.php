@@ -73,22 +73,16 @@
         @endforeach
     </div>    
 
-    {{-- @if (isset($incollection) && $incollection)
-        {{ Form::open(['route' => array('collection.destroy', $precedent)]) }}
-            {{ Form::hidden('precedent_id', $precedent->id) }}
-            {{ Form::hidden('collection_id', $$codcollection) }}
-            <input type="submit" value="Remover desta coleção">
-        {{ Form::close() }}
-    @endif --}}
-
     <div class="d-flex align-items-end justify-content-between flex-wrap pt-3">
         <div class="d-flex align-items-center flex-wrap mr-5">
-            {{ Form::open([]) }}
-                <button class="mp-button--transparent mp-text-meta" type="submit">
-                    <svg class="mp-icon--dark mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z" /></svg>
-                    Curtir
-                </button>
-            {{ Form::close() }}
+            @auth
+                {{ Form::open([]) }}
+                    <button class="mp-button--transparent mp-text-meta" type="submit">
+                        <svg class="mp-icon--dark mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z" /></svg>
+                        Curtir
+                    </button>
+                {{ Form::close() }}
+            @endauth
         </div>
 
         <a class="mp-button--primary" href="{{ route('precedents.show', $precedent) }}">Ler mais</a>

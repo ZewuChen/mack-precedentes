@@ -2,104 +2,63 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Repositories\Collections;
+use App\Http\Requests\UserPasswordUpdateRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\Users;
-use Illuminate\Http\Request;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-	protected $user;
+    protected $users;
 
-	public function __contruct(Users $user)
+    public function __construct(Users $users)
     {
-        $this->user = $user;
+        $this->users = $users;
     }
 
-    public function index()
+    public function profile()
     {
-    	$collections =  (new Collections)->fetchAll();
-    	$user = auth()->user()->find(Auth::user()->id);
-    	
-    	return view('user.show', compact('user', 'collections'));
+        $user = Auth::user();
+
+        return view('user.profile', compact('user'));
     }
 
-    public function update(Request $request)
-    {    	
-    	$data = $request->all();
+    public function update(UserUpdateRequest $request)
+    {
+        $user = Auth::user();
 
-    	$createRules = ['name' => 'required',
-					    'email' =>'required',
-						'description' =>'nullable',
-                        'photo' => 'mimes:jpeg,jpg,bmp,png|nullable'
-        ];
+        $this->users->update(
+            $user,
+            $request->only('name', 'email', 'description')
+        );
 
-    	$validate = validator($data, $createRules);
+        if ($request->has('photo')) {
+            $path = Storage::putFile('users', $request->file('photo'));
 
-        if ($validate->fails())
-        {
-            return redirect()->back()->withErrors($validate);
-        }
-        else
-        {
-            $user = User::find(Auth::user()->id);
-            $photo = !isset($data['photo']) ? null : Storage::disk('local')->putFile('photos', $data['photo']); 
+            $this->users->setPhotoPath($user, $path);
+        }        
 
-            $user->update([
-                    'name' => $data['name'],
-                    'email' => $data['email'],
-                    'description' => $data['description'],
-                    'photo' => $photo
-                ]);        
-
-	        return redirect()->route('user.index');
-	    }
+        return back()
+            ->with('success', 'Perfil atualizado.');
     }
 
-    public function password(Request $request)
+    public function updatePassword(UserPasswordUpdateRequest $request)
     {
-        $data = $request->all();
-        $user = User::find(Auth::user()->id);
+        $user = Auth::user();
 
-        $createRules = ['new_password' => 'min:6'];
-
-        $validate = validator($data, $createRules);
-
-        if( $validate->fails())
-        {
-            return redirect()->route('user.index')->withErrors($validate);
-        }
-        else
-        {
-            if (isset($data['old_password']))
-            {
-                if (Hash::check($data['old_password'], $user->password))
-                {
-                    $user->update([
-                            'password' => Hash::make($data['new_password'])
-                    ]);
-
-                    return redirect()->route('user.index');
-                }  
-                else
-                {
-                    return redirect()->back()->withErrors('Senha Inválida');
-                } 
-            }
-            else
-            {
-                $user->update([
-                            'password' => Hash::make($data['new_password'])
-                    ]);
-
-                    return redirect()->route('user.index');
+        if ($request->get('old_password')) {
+            if (! Hash::check($request->get('old_password'), $user->password)) {
+                return back()
+                    ->with('success', 'A senha digitada é inválida.');
             }
         }
-        
-    }
 
+        $this->users->setPassword($user, $request->get('password'));
+
+        return back()
+            ->with('success', 'Senha atualizada com sucesso.');
+    }
 }

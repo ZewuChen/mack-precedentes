@@ -1,11 +1,11 @@
-<div class="d-flex align-items justify-content-between mb-5">
+<div class="d-flex align-items justify-content-between mb-5 mt-3">
     <div>
         {{ Form::open(['route' => 'precedents.search', 'method' => 'get'])}}
             <div class="form-inline">
                 <button class="mp-button-icon" type="submit">
                     <svg class="mp-icon--dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
                 </button>
-                <input type="text" class="form-control" name="data" required>
+                <input type="text" class="form-control" name="data" placeholder="Pesquisar">
                 <button class="mp-button-icon" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     <svg class="mp-icon--dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M6,13H18V11H6M3,6V8H21V6M10,18H14V16H10V18Z" /></svg>
                 </button>
@@ -14,33 +14,54 @@
                 <div class="row py-5">
                     <div class="d-flex justify-content-between">
                         <fieldset class="col-4">
-                            <legend>Tribunais</legend>
-                            @foreach($courts->take(8) as $court)                    
-                                <label class="form-inline"><input type="checkbox" name="courts[]" class="btn btn-link" value="{{$court->id}}">{!! $court->name !!}</label>                    
+                            <legend class="mp-text-meta">Tribunais</legend>
+                            @foreach($courts->take(8) as $court)
+                                <div class="form-check">                  
+                                    <input class="form-check-input" type="checkbox" name="courts[]" value="{{ $court->id }}" id="court-{{ $court->id }}">
+                                    <label class="form-check-label" for="court-{{ $court->id }}">{{ $court->alias }}</label>
+                                </div>         
                             @endforeach 
                         </fieldset>
 
                         <fieldset class="col-4">
-                            <legend>Origem processual</legend>
+                            <legend class="mp-text-meta">Origem processual</legend>
                             @foreach ($precedentsTypes->take(8) as $precedentType)
-                                <label class="form-inline">
-                                    <input type="checkbox" name="types[]" class="btn btn-link" value="{{$precedentType->id}}">
-                                    {!! $precedentType->name !!}
-                                </label>
+                                <div class="form-check">
+                                    <input type="checkbox" name="types[]" value="{{ $precedentType->id }}" id="precedent-type-{{ $precedentType->id }}">
+                                    <label class="form-check-label" class="precedent-type-{{ $precedentType->id }}">{{ $precedentType->name }}</label>
+                                </div>
                             @endforeach
                         </fieldset>
 
                         <fieldset class="col-4">
-                            <legend>Por período</legend>
-                            <label class="form-inline"><input type="radio" name="date" groupName="date" value="today">Hoje</label>
-                            <label class="form-inline"><input type="radio" name="date" groupName="date" value="week">Esta Semana</label>
-                            <label class="form-inline"><input type="radio" name="date" groupName="date" value="month">Este Mês</label>
-                            <label class="form-inline"><input type="radio" name="date" groupName="date" value="year">Este Ano</label>
-                            <label class="form-inline"><input type="radio" name="date" groupName="date" value="last">Mais Antigos</label>
+                            <legend class="mp-text-meta">Por período</legend>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="date" groupName="date" value="today">
+                                <label class="form-inline">Hoje</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="date" groupName="date" value="week">
+                                <label class="form-check-label">Esta Semana</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="date" groupName="date" value="month">
+                                <label class="form-check-label">Este Mês</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="date" groupName="date" value="year">
+                                <label class="form-check-label">Este Ano</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="date" groupName="date" value="last">
+                                <label class="form-check-label">Mais Antigos</label>
+                            </div>
                         </fieldset>
                     </div>
                 </div>
+
+                <input type="submit" value="Filtrar">
             </div>
+
         {{ Form::close() }}
     </div>
 

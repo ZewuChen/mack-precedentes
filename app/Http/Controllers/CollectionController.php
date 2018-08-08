@@ -22,6 +22,8 @@ class CollectionController extends Controller
 
     public function show(Collection $collection)
     {
+        $this->authorize('view', $collection);
+
         return view('collections.show', compact('collection'));
     }
 
@@ -74,8 +76,8 @@ class CollectionController extends Controller
 
     public function destroy(Request $request)
     {
-        $precedent = Precedent::find($request->get('precedent_id'));
-        $delete = $precedent->collections()->detach($request->get('collection_id'));
+        $precedent = $this->precedents->find($request->get('precedent_id'));
+        $precedent->collections()->detach($request->get('collection_id'));
 
         return back();
     }
