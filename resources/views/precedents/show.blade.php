@@ -15,9 +15,9 @@
 
     <hr>
 
-    @can ('create', App\Comment::class)
+    @auth
         <section class="my-5">
-            <h6>Publicar um comentário</h6>
+            <h6 class="mp-heading">Publicar um comentário</h6>
             <p class="mp-text-meta">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -39,16 +39,16 @@
             {{ Form::close() }}
 
         </section>
-    @endcan
+    @endauth
 
     @if ($precedent->comments->count())
 
         <section class="mt-5">
-            <h6>Comentários</h6>
+            <h6 class="mp-heading">Comentários ({{ $precedent->comments->count() }})</h6>
 
             <div>
                 @foreach ($precedent->comments as $comment)
-                    @can ('view', $comment)
+                    @if ($comment->isApproved() || auth()->user()->hasRole('admin'))
                         <article class="py-3">
                             <div class="row">
                                 <div class="col-9">
@@ -86,7 +86,7 @@
                                 @endcan
                             </div>
                         </article>
-                    @endcan
+                    @endif
                 @endforeach
             </div>
 

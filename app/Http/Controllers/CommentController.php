@@ -22,7 +22,7 @@ class CommentController extends Controller
 
     public function show(Comment $comment)
     {
-        $this->authorize('view', $comment);
+        // $this->authorize('view', $comment);
 
         return view('comments.show', compact('comment'));
     }

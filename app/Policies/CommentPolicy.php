@@ -12,13 +12,14 @@ class CommentPolicy
 
     public function view(User $user, Comment $comment)
     {
+        return false;
         return $user->hasRole('admin')
             || $comment->isApproved();
     }
 
     public function create(User $user)
     {
-        return $user->hasAnyRole(['admin', 'collaborator']);
+        return true;
     }
 
     public function approve(User $user, Comment $comment)

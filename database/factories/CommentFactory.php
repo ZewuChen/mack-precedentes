@@ -7,6 +7,7 @@ $factory->define(App\Comment::class, function (Faker $faker) {
         'body' => $faker->realText,
         'slug' => $faker->unique()->slug,
         'file' => $faker->optional()->ean8 . '.' . $faker->fileExtension,
+        'is_approved' => true,
         'precedent_id' => function () {
             return factory(App\Precedent::class)->create();
         },
