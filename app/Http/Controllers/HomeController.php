@@ -15,6 +15,7 @@ class HomeController extends Controller
     {
         $this->precedents = $precedents;
     }
+    
     public function index()
     {
         $precedents = $this->precedents->fetchAll();

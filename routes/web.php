@@ -45,12 +45,12 @@ Route::group(['prefix' => 'collections'], function () {
 Route::resource('collections', 'CollectionController')
     ->only('store', 'show');
 
+// Auth
+Auth::routes();
+
 Route::get('redirect', 'FacebookController@redirect')->name('facebook.login');
 Route::get('callback', 'FacebookController@callback');
 
 Route::get('/', 'HomeController@index')
     ->name('home');
-
-// Auth
-Auth::routes();
 
