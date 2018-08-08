@@ -59,6 +59,27 @@ class Precedent extends Model
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'like');
+    }
+
+    public function hasLike(Precedent $precedent)
+    {
+        
+        $likes = $precedent->likes->where('user_id' , Auth::user()->id); 
+         foreach ($likes as $like) {
+            if($like['like_id'] == $precedent->id)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+     }
+
     public function has(Precedent $precedent)
     {        
         $contain = $precedent->saves->contains(Auth::user()->id); 

@@ -7,6 +7,10 @@ Route::group(['prefix' => 'precedentes'], function () {
     Route::get('search', 'PrecedentController@search')->name('precedents.search');
     Route::post('{precedent}/save', 'SavesController@save')->name('precedents.save');
     Route::post('{precedent}/unsave', 'SavesController@unsave')->name('precedents.unsave');
+
+
+    Route::post('like', 'PrecedentController@like')->name('precedent.like');
+    Route::post('dislike', 'PrecedentController@dislike')->name('precedent.dislike');
 });
 Route::resource('precedents', 'PrecedentController')
     ->only('create', 'store', 'destroy', 'show', 'index');
