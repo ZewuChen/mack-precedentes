@@ -15,7 +15,7 @@
                     <div class="d-flex justify-content-between">
                         <fieldset class="col-4">
                             <legend class="mp-text-meta">Tribunais</legend>
-                            @foreach($courts->take(8) as $court)
+                            @foreach($courts->take(10) as $court)
                                 <div class="form-check">                  
                                     <input class="form-check-input" type="checkbox" name="courts[]" value="{{ $court->id }}" id="court-{{ $court->id }}">
                                     <label class="form-check-label" for="court-{{ $court->id }}">{{ $court->alias }}</label>
@@ -25,10 +25,10 @@
 
                         <fieldset class="col-4">
                             <legend class="mp-text-meta">Origem processual</legend>
-                            @foreach ($precedentsTypes->take(8) as $precedentType)
+                            @foreach ($precedentsTypes->take(10) as $precedentType)
                                 <div class="form-check">
                                     <input type="checkbox" name="types[]" value="{{ $precedentType->id }}" id="precedent-type-{{ $precedentType->id }}">
-                                    <label class="form-check-label" class="precedent-type-{{ $precedentType->id }}">{{ $precedentType->name }}</label>
+                                    <label class="form-check-label" for="precedent-type-{{ $precedentType->id }}">{{ $precedentType->name }}</label>
                                 </div>
                             @endforeach
                         </fieldset>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <input type="submit" value="Filtrar">
+                <input class="mp-button--outline" type="submit" value="Filtrar">
             </div>
 
         {{ Form::close() }}

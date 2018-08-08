@@ -3,12 +3,11 @@
 // Precedents
 Route::group(['prefix' => 'precedentes'], function () {
     Route::get('saved', 'PrecedentController@saved')->name('precedents.saved');
-    Route::get('meus-precedentes', 'SavesController@myPrecedents')->name('precedents.mine');
+    Route::get('mine', 'SavesController@myPrecedents')->name('precedents.mine');
     Route::get('search', 'PrecedentController@search')->name('precedents.search');
     Route::post('{precedent}/save', 'SavesController@save')->name('precedents.save');
     Route::post('{precedent}/unsave', 'SavesController@unsave')->name('precedents.unsave');
 });
-
 Route::resource('precedents', 'PrecedentController')
     ->only('create', 'store', 'destroy', 'show', 'index');
 
@@ -45,6 +44,9 @@ Route::group(['prefix' => 'collections'], function () {
 });
 Route::resource('collections', 'CollectionController')
     ->only('store', 'show');
+
+
+
 
 Auth::routes();
 
