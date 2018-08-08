@@ -12,7 +12,7 @@ class Precedent extends Model
     use FullTextSearch;
 
     public $fillable = ['number', 'slug', 'body', 'segregated_at', 'approved_at', 'suspended_at', 'canceled_at', 'reviewed_at', 'pending_resources', 
-    'additional_info', 'court_id', 'user_id', 'type_id'];
+    'additional_info', 'court_id', 'user_id', 'type_id', 'branch_id'];
 
     protected $searchable = [
         'number',
