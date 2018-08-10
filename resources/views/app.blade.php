@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/plugins/colors/ui/trumbowyg.colors.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/plugins/mathml/ui/trumbowyg.mathml.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/plugins/mention/ui/trumbowyg.mention.min.css">
+    <link rel="shortcut icon" sizes="196x196" href="{{ asset('img/favicon.png') }}">
 
     <title>Mack Precedentes</title>
 </head>
