@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\Traits\HasLikes;
 use App\Traits\WithSlug;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    use WithSlug;
+    use WithSlug, HasLikes;
     
     protected $fillable = [
         'body', 'slug', 'file', 'is_approved', 'precedent_id', 'user_id'

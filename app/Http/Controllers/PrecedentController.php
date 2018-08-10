@@ -91,21 +91,21 @@ class PrecedentController extends Controller
         return view('precedents.saved', compact('precedents'));
     }
 
-    public function like(Request $request)
+    public function like(Precedent $precedent)
     {
-        $precedent = Precedent::find($request['precedent_id']);
         $precedent->likes()->create([
             'user_id' => Auth::user()->id
         ]);
 
-        return back();
+        return back()
+            ->with('success', 'Precedente ' . $precedent->number . ' curtido.');
     }
 
-    public function dislike(Request $request)
+    public function dislike(Precedent $precedent)
     {
-        $precedent = Precedent::find($request['precedent_id']);
         $precedent->likes()->where('user_id', Auth::user()->id)->delete();
 
-        return back();
+        return back()
+            ->with('success', 'Precedente ' . $precedent->number . ' descurtido.');
     }
 }

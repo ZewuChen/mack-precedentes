@@ -12,8 +12,11 @@ class Precedent extends Model
 {
     use FullTextSearch, HasLikes;
 
-    public $fillable = ['number', 'slug', 'body', 'segregated_at', 'approved_at', 'suspended_at', 'canceled_at', 'reviewed_at', 'pending_resources', 
-    'additional_info', 'court_id', 'user_id', 'type_id'];
+    public $fillable = [
+        'number', 'slug', 'body', 
+        'segregated_at', 'approved_at', 'suspended_at', 'canceled_at', 'reviewed_at', 
+        'pending_resources', 'additional_info', 'court_id', 'user_id', 'type_id', 'branch_id',
+    ];
 
     protected $searchable = [
         'number',
@@ -63,19 +66,6 @@ class Precedent extends Model
     public function saves()
     {
         return $this->belongsToMany(User::class)->withTimestamps();
-    }
-
-    public function hasLike(Precedent $precedent)
-    {        
-        $likes = $precedent->likes->where('user_id' , Auth::user()->id);
-
-        foreach ($likes as $like) {
-            if ($like['like_id'] == $precedent->id) {
-                return true;
-            } else {
-                return false;
-            }
-        }
     }
 
     public function has(Precedent $precedent)

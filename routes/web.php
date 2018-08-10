@@ -7,9 +7,8 @@ Route::group(['prefix' => 'precedentes'], function () {
     Route::get('search', 'PrecedentController@search')->name('precedents.search');
     Route::post('{precedent}/save', 'SavesController@save')->name('precedents.save');
     Route::post('{precedent}/unsave', 'SavesController@unsave')->name('precedents.unsave');
-
-    Route::post('like', 'PrecedentController@like')->name('precedent.like');
-    Route::post('dislike', 'PrecedentController@dislike')->name('precedent.dislike');
+    Route::post('{precedent}/like', 'PrecedentController@like')->name('precedent.like');
+    Route::post('{precedent}/dislike', 'PrecedentController@dislike')->name('precedent.dislike');
 });
 Route::resource('precedents', 'PrecedentController')
     ->only('create', 'store', 'destroy', 'show', 'index');
@@ -38,6 +37,10 @@ Route::resource('branches', 'BranchController')
     ->only('show');
 
 // Comments
+Route::group(['prefix' => 'comments'], function () {
+    Route::post('{comment}/like', 'CommentController@like')->name('comment.like');
+    Route::post('{comment}/dislike', 'CommentController@dislike')->name('comment.dislike');
+});
 Route::patch('comments/{comment}/approve', 'CommentController@approve')
     ->name('comments.approve');
 Route::resource('comments', 'CommentController')
