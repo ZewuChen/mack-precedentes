@@ -96,7 +96,6 @@
                     {{ Form::close() }}
                 @endif
 
-                {{ Form::close() }}
             @endauth
         </div>
 

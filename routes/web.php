@@ -8,7 +8,6 @@ Route::group(['prefix' => 'precedentes'], function () {
     Route::post('{precedent}/save', 'SavesController@save')->name('precedents.save');
     Route::post('{precedent}/unsave', 'SavesController@unsave')->name('precedents.unsave');
 
-
     Route::post('like', 'PrecedentController@like')->name('precedent.like');
     Route::post('dislike', 'PrecedentController@dislike')->name('precedent.dislike');
 });

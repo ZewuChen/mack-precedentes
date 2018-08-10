@@ -2,14 +2,15 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use App\Repositories\Precedents;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\HasLikes;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Precedent extends Model
 {
-    use FullTextSearch;
+    use FullTextSearch, HasLikes;
 
     public $fillable = ['number', 'slug', 'body', 'segregated_at', 'approved_at', 'suspended_at', 'canceled_at', 'reviewed_at', 'pending_resources', 
     'additional_info', 'court_id', 'user_id', 'type_id'];
@@ -59,32 +60,22 @@ class Precedent extends Model
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'like');
-    }
-
     public function hasLike(Precedent $precedent)
-    {
-        
-        $likes = $precedent->likes->where('user_id' , Auth::user()->id); 
-         foreach ($likes as $like) {
-            if($like['like_id'] == $precedent->id)
-            {
+    {        
+        $likes = $precedent->likes->where('user_id' , Auth::user()->id);
+
+        foreach ($likes as $like) {
+            if ($like['like_id'] == $precedent->id) {
                 return true;
-            }
-            else
-            {
+            } else {
                 return false;
             }
         }
-     }
+    }
 
     public function has(Precedent $precedent)
     {        
-        $contain = $precedent->saves->contains(Auth::user()->id); 
-
-        return $contain;
+        return $precedent->saves->contains(Auth::user()->id);
     }
 
     public function scopeLoggedIn($query)

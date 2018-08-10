@@ -39,7 +39,7 @@
                 
                 <li class="mp-nav__item">
                     <a class="d-flex align-items-center py-2" href="{{ route('collections.show', $collection) }}">
-                        <span class="mp-collection-icon mr-2">AC</span>
+                        <span class="mp-collection-icon mr-2"></span>
                         {{ $collection->name }}
                     </a>
                 </li>

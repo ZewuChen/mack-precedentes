@@ -98,7 +98,7 @@ class PrecedentController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        return redirect()->route('precedents.index');
+        return back();
     }
 
     public function dislike(Request $request)
@@ -106,6 +106,6 @@ class PrecedentController extends Controller
         $precedent = Precedent::find($request['precedent_id']);
         $precedent->likes()->where('user_id', Auth::user()->id)->delete();
 
-        return redirect()->route('precedents.index');
+        return back();
     }
 }
