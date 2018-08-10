@@ -3,7 +3,7 @@
 @section ('content')
 
     <h2 class="mp-heading">{{ $collection->name }}</h2>
-    <p class="mp-text-meta">Coleção de {{ $collection->user->name }}</p>
+    <p class="mp-text-meta">Coleção de {{ $collection->user->name }} ({{ $collection->precedents->count() }} resultados)</p>
 
     <div class="py-4">
         
