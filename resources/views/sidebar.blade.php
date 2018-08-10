@@ -1,7 +1,7 @@
 <section class="mb-5">
     <h6 class="mp-heading">Ramos do Direito</h6>
     <ul class="list-unstyled">
-        @forelse ($branches->random(8) as $branch)
+        @forelse ($branches as $branch)
             <li><a href="{{ route('branches.show', $branch) }}">{{ $branch->name }}</a></li>
         @empty
             <li>Nenhum ramo encontrado</li>
@@ -12,18 +12,7 @@
 <section class="mb-5">
     <h6 class="mp-heading">Origens Processuais</h6>
     <ul class="list-unstyled">
-        @forelse ($precedentsTypes->random(8) as $type)
-            <li><a href="{{ route('types.show', $type) }}">{{ $type->name }}</a></li>
-        @empty
-            <li>Nenhuma origem processual encontrada</li>
-        @endforelse
-    </ul>
-</section>
-
-<section class="mb-5">
-    <h6 class="mp-heading">Origens Processuais</h6>
-    <ul class="list-unstyled">
-        @forelse ($precedentsTypes->random(8) as $type)
+        @forelse ($precedentsTypes as $type)
             <li><a href="{{ route('types.show', $type) }}">{{ $type->name }}</a></li>
         @empty
             <li>Nenhuma origem processual encontrada</li>
