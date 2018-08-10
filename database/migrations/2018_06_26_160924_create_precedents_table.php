@@ -31,6 +31,7 @@ class CreatePrecedentsTable extends Migration
             $table->unsignedInteger('court_id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('type_id');
+            $table->unsignedInteger('branch_id');
         });
 
         DB::statement('ALTER TABLE precedents ADD FULLTEXT fulltext_index' . '(number, body)');

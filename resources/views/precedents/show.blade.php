@@ -5,7 +5,7 @@
     <h2 class="mp-heading">{{ $precedent->type->name }}; {{ $precedent->number }}</h2>
     <div class="mp-text-serif">{{ $precedent->body }}</div>
 
-    <p class="mp-text-meta">Emitido em <a href="{{ route('courts.show', $precedent->court) }}">{{ $precedent->court->alias }}</a> {{ $precedent->created_at->diffForHumans() }}</p>
+    <p class="mp-text-meta">Emitido {{ $precedent->created_at->diffForHumans() }} em <a href="{{ route('branches.show', $precedent->branch) }}">{{ $precedent->branch->name }}</a> no tribunal <a href="{{ route('courts.show', $precedent->court) }}">{{ $precedent->court->alias }}</a></p>
 
     <div>
         @foreach ($precedent->tags as $tag)

@@ -22,17 +22,22 @@
                    
                     <select name="court_id" class="form-control col-5">
                             @foreach($courts as $court)
-                                <option value="{{ $court->id }}">{!! $court->name !!}</option>
+                                <option value="{{ $court->id }}">{{ $court->name }}</option>
                             @endforeach
                     </select>
                 </div>
             </div>
 
-            {{-- <div class="form-group">
+            <div class="form-group">
                 <div class="row d-flex align-items-center">
                     <label class="mp-heading col-2">Ramo do direito</label>
-                </div>              
-            </div> --}}
+                    <select name="branch_id" class="form-control col-5">
+                        @foreach($branches as $branch)
+                            <option value="{{ $branch->id }}">{{ $branch->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
             <div class="form-group">
                 <div class="row d-flex align-items-center">

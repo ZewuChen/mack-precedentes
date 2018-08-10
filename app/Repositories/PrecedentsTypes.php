@@ -10,5 +10,4 @@ class PrecedentsTypes extends Repository
     {
         return PrecedentType::ordered()->get();
     }
-
 }

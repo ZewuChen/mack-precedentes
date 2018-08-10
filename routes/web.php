@@ -33,6 +33,10 @@ Route::resource('courts', 'CourtController')
 Route::resource('tags', 'TagController')
     ->only('show');
 
+// Branches
+Route::resource('branches', 'BranchController')
+    ->only('show');
+
 // Comments
 Route::patch('comments/{comment}/approve', 'CommentController@approve')
     ->name('comments.approve');

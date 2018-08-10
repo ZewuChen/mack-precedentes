@@ -16,5 +16,8 @@ $factory->define(App\Precedent::class, function (Faker $faker) {
         'type_id' => function () {
             return factory(App\PrecedentType::class)->create();
         },
+        'branch_id' => function () {
+            return App\Branch::inRandomOrder()->first()->id;
+        }, 
     ];
 });
