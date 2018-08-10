@@ -7,8 +7,11 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="{{ url('css/app.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.9.4/ui/trumbowyg.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.9.4/plugins/colors/ui/trumbowyg.colors.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.9.4/plugins/mathml/ui/trumbowyg.mathml.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.9.4/plugins/mention/ui/trumbowyg.mention.min.css">
 
     <title>Mack Precedentes</title>
 </head>
@@ -35,13 +38,33 @@
     </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.9.4/trumbowyg.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.9.4/langs/pt_br.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.9.4/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" defer>
         $(function () {
             setTimeout(function () {
                 $('.mp-flash').css('display', 'none');
             }, 6000);
+        });
+
+        $(document).ready(function() {
+            $('#trumbowyg').trumbowyg({
+                btns: [
+                    ['strong', 'em'],
+                    ['link'],
+                    ['unorderedList', 'orderedList'],
+                    ['removeformat'],
+                    ['superscript', 'subscript'],
+                    ['undo', 'redo'],
+                ],
+                // removeformatPasted: true,
+                autogrow: true,
+            });
         });
     </script>
 
