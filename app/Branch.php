@@ -2,14 +2,17 @@
 
 namespace App;
 
+use App\Traits\WithSlug;
 use Illuminate\Database\Eloquent\Model;
 
 class Branch extends Model
 {
+    use WithSlug;
+    
     protected $fillable = [
         'name', 'slug',
     ];
-
+    
     public function getRouteKeyName()
     {
         return 'slug';

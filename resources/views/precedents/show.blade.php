@@ -116,6 +116,16 @@
                     @endif
                 @endforeach
             </div>
+            <hr>
+            <p class="mp-text-meta"><strong>Disclaimer:</strong> os comentários exibidos no site são resultado do trabalho dos acadêmicos
+    da Universidade Presbiteriana Mackenzie ou de outros estudiosos, submetidos a
+    revisão dos editores do projeto Mack Precedentes, também acadêmicos de Direito.
+    Seu propósito é exclusivamente didático-científico, como ferramenta de discussão e
+    análise do conteúdo dos precedentes vinculantes analisados. Os comentários não
+    servem como orientação jurídica e estão sujeitos a erros de análise próprios do
+    contexto de sua produção. A autonomia científica dos autores dos comentários foi
+    preservada, motivo pelo qual o Observatório e a Universidade Presbiteriana Mackenzie
+    não se responsabilizam nem endossam as opiniões aqui expostas.</p>
 
         </section>
 
