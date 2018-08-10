@@ -16,25 +16,22 @@
 
     <title>Mack Precedentes</title>
 </head>
-<body>
+<body class="mp-bg-lightgray">
 
     @include ('nav')
     
-    @auth
-        {{ Form::open(['logout' => 'logout']) }}
-            <input type="submit" value="Logout">
-        {{ Form::close() }}
-    @endauth
-
-    
-
-    {{-- <a href="{{ route('user.index') }}"><input type="submit" value="Profile"></a> --}}
-    
-    <div class="container">
+    <div style="margin-left: 300px;">
         @include ('topbar')
-        <br><br>
-        {{-- <img class="mp-img--48x48" src="https://randomuser.me/api/portraits/men/32.jpg"> --}}
-        @yield ('content')
+
+        <div class="d-flex">
+            <div class="mp-content p-5">
+                @yield ('content')
+            </div>
+
+            <div class="mp-sidebar p-5">
+                @include ('sidebar')
+            </div>
+        </div>
         
     </div>
 

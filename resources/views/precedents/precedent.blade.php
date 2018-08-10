@@ -28,7 +28,7 @@
                 @endif
 
                 <div class="dropdown">
-                    <button class="mp-button-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="mp-button-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Adicionar a uma coleção">
                         <svg class="mp-icon--dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M2,16H10V14H2M18,14V10H16V14H12V16H16V20H18V16H22V14M14,6H2V8H14M14,10H2V12H14V10Z" /></svg>
                     </button>
 
@@ -50,7 +50,7 @@
 
                 @can ('delete', $precedent)
                     <div class="dropdown">
-                        <button class="mp-button-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="mp-button-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Mais opções">
                             <svg class="mp-icon--dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" /></svg>
                         </button>
                         <div class="dropdown-menu">

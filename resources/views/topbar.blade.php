@@ -1,5 +1,5 @@
-<div class="d-flex align-items justify-content-between mb-5 mt-3">
-    <div>
+<div class="d-flex align-items justify-content-between mp-topbar">
+    <div class="px-5">
         {{ Form::open(['route' => 'precedents.search', 'method' => 'get'])}}
             <div class="form-inline">
                 <button class="mp-button-icon" type="submit">
@@ -65,17 +65,20 @@
         {{ Form::close() }}
     </div>
 
+
     @auth
-        <div class="dropdown">
-            <button class="mp-button-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{-- <img class="mp-image--36x36 mp-rounded" src="{{ auth()->user()->photo ? asset('storage/' . auth()->user()->photo) : asset('storage/users/default-user.jpg') }}"> --}}
-                <img class="mp-image--36x36 mp-rounded" src="https://34yigttpdc638c2g11fbif92-wpengine.netdna-ssl.com/wp-content/uploads/2016/09/default-user-img-300x300.jpg">
-            </button>
-            <div class="dropdown-menu mp-dropdown__menu">
-                <a class="mp-dropdown__item" href="{{ route('profile') }}">Perfil</a>
-                {{ Form::open(['route' => 'logout'])}}
-                    <input type="submit" class="mp-dropdown__item" value="Logout">
-                {{ Form::close() }}
+        <div class="px-5">
+            <div class="dropdown">
+                <button class="mp-button-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{-- <img class="mp-image--36x36 mp-rounded" src="{{ auth()->user()->photo ? asset('storage/' . auth()->user()->photo) : asset('storage/users/default-user.jpg') }}"> --}}
+                    <img class="mp-image--36x36 mp-rounded" src="https://34yigttpdc638c2g11fbif92-wpengine.netdna-ssl.com/wp-content/uploads/2016/09/default-user-img-300x300.jpg">
+                </button>
+                <div class="dropdown-menu mp-dropdown__menu">
+                    <a class="mp-dropdown__item" href="{{ route('profile') }}">Perfil</a>
+                    {{ Form::open(['route' => 'logout'])}}
+                        <input type="submit" class="mp-dropdown__item" value="Logout">
+                    {{ Form::close() }}
+                </div>
             </div>
         </div>
     @endauth

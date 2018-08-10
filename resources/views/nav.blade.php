@@ -1,7 +1,7 @@
 <nav class="mp-nav">
     <div class="px-4">
         <a href="{{ route('home') }}">
-            <img class="mp-image--w-100" src="{{ url('img/logo.png') }}">
+            <img class="mp-image--max-w-150" src="{{ url('img/logo.png') }}">
         </a>
     </div>
 
