@@ -1,5 +1,13 @@
 <?php
 
+// Pages
+Route::get('team', 'PageController@team')->name('team');
+Route::get('definition', 'PageController@definition')->name('definition');
+Route::get('proposal', 'PageController@proposal')->name('proposal');
+// Route::get('scientific-methodology', 'PageController@scientificMethodology')->name('scientific-methodology');
+Route::get('collection-methodology', 'PageController@collectionMethodology')->name('collection-methodology');
+Route::get('patreon', 'PageController@patreon')->name('patreon');
+
 // Precedents
 Route::group(['prefix' => 'precedentes'], function () {
     Route::get('saved', 'PrecedentController@saved')->name('precedents.saved');

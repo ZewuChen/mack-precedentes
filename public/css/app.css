@@ -6572,6 +6572,7 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font-family: "Noto Sans", sans-serif;
   font-size: 15px;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased; }
 
 a {
@@ -6599,8 +6600,7 @@ a {
 
 /***** Types **** */
 .mp-text-serif {
-  font-family: "Adamina", serif;
-  line-height: 1.8; }
+  font-family: "Adamina", serif; }
 
 .mp-heading {
   font-family: "Nunito", sans-serif; }

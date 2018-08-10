@@ -41,3 +41,12 @@
         @endforelse
     </ul>
 </section>
+
+<div class="d-flex align-items-center flex-wrap justify-content-center mp-text-meta pt-5">
+    <a href="{{ route('definition') }}" class="mp-text-secondary mx-2 my-1">Definição</a>
+    <a href="{{ route('proposal') }}" class="mp-text-secondary mx-2 my-1">Proposta</a>
+    <a href="{{ route('team') }}" class="mp-text-secondary mx-2 my-1">Equipe</a>
+    {{-- <a href="{{ route('scientific-methodology') }}" class="mp-text-secondary mx-2 my-1">Metodologia Científica</a> --}}
+    <a href="{{ route('collection-methodology') }}" class="mp-text-secondary mx-2 my-1">Metodologia de Coleta</a>
+    <a href="{{ route('patreon') }}" class="mp-text-secondary mx-2 my-1">Patrono</a>
+</div>
