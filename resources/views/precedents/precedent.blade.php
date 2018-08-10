@@ -5,7 +5,7 @@
 
     <div class="d-flex justify-content-between align-items-start flex-column flex-md-row">
         <div class="mr-5">
-            <p class="mp-text-serif">{{ $precedent->body }}</p>
+            <p class="mp-text-serif">{{ str_limit($precedent->body, 200) }}</p>
             <p class="mp-text-meta">Emitido {{ $precedent->created_at->diffForHumans() }} em <a href="{{ route('branches.show', $precedent->branch) }}">{{ $precedent->branch->name }}</a> no tribunal <a href="{{ route('courts.show', $precedent->court) }}">{{ $precedent->court->alias }}</a></p>
         </div>
 
