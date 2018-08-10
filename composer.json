@@ -11,6 +11,7 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
+        "lasserafn/php-initials": "^2.20",
         "ramsey/uuid": "^3.8",
         "spatie/laravel-permission": "^2.12"
     },

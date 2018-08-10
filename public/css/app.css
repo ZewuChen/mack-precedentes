@@ -4311,7 +4311,7 @@ button.bg-dark:focus {
 .d-table-cell {
   display: table-cell !important; }
 
-.d-flex, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden {
+.d-flex, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden, .mp-collection-initials {
   display: flex !important; }
 
 .d-inline-flex {
@@ -4513,7 +4513,7 @@ button.bg-dark:focus {
 .justify-content-end {
   justify-content: flex-end !important; }
 
-.justify-content-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden {
+.justify-content-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden, .mp-collection-initials {
   justify-content: center !important; }
 
 .justify-content-between {
@@ -4528,7 +4528,7 @@ button.bg-dark:focus {
 .align-items-end {
   align-items: flex-end !important; }
 
-.align-items-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden {
+.align-items-center, .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden, .mp-collection-initials {
   align-items: center !important; }
 
 .align-items-baseline {
@@ -6739,6 +6739,13 @@ a {
       text-decoration: none; }
     .mp-nav__item--selected, .mp-nav__item--selected a, .mp-nav__item a--selected, .mp-nav__item--selected a--selected, .mp-nav__item a--selected a a--selected, .mp-nav__item a--selected a, .mp-nav__item--selected a--selected a {
       color: #66BB6A; }
+
+.mp-collection-initials {
+  font-size: 82%;
+  background: #ECEFF1;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px; }
 
 .mp-input, .mp-input--rounded {
   border-radius: 4px;

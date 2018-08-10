@@ -33,13 +33,15 @@
                     <svg class="mp-icon mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z" /></svg>
                     Meus salvos
                 </a>
-            </li>        
+            </li>
+
+            <hr>
 
             @foreach (auth()->user()->collections->sortBy('name') as $collection)
                 
                 <li class="mp-nav__item">
                     <a class="d-flex align-items-center py-2" href="{{ route('collections.show', $collection) }}">
-                        <span class="mp-collection-icon mr-2"></span>
+                        <span class="mp-collection-initials mr-2">{{ (new Initials)->name($collection->name)->length(2)->generate() }}</span>
                         {{ $collection->name }}
                     </a>
                 </li>
