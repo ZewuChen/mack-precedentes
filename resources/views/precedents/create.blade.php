@@ -109,13 +109,15 @@
             <div class="form-group">
                 <div class="row d-flex align-items-center">
                     <label class="mp-heading col-sm-2">Tese*</label>
-                    <textarea name="body" class="form-control col-8" required>{{ old('body') }}</textarea>
+                    <textarea name="body" class="form-control col-8" id="trumbowyg" required>{{ old('body') }}</textarea>
                 </div>
-            </div> 
+            </div>
 
             <input type="submit" class="mp-button--primary" value="Publicar precedente">
 
         {{ Form::close() }}
+
+        @include ('trumbowyg-icons')
     
     </div>
 
