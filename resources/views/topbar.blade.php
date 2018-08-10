@@ -68,7 +68,7 @@
     @auth
         <div class="dropdown">
             <button class="mp-button-icon" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="mp-image--36x36 mp-rounded" src="https://randomuser.me/api/portraits/men/43.jpg">
+                <img class="mp-image--36x36 mp-rounded" src="{{ auth()->user()->photo ? asset('storage/' . auth()->user()->photo) : asset('storage/users/default-user.jpg') }}">
             </button>
             <div class="dropdown-menu mp-dropdown__menu">
                 <a class="mp-dropdown__item" href="{{ route('profile') }}">Perfil</a>

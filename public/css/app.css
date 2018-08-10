@@ -6628,16 +6628,17 @@ a {
 .mp-image, .mp-image--36x36, .mp-image--48x48, .mp-image--w-100, .mp-image--max-w-100px {
   display: inline-block; }
   .mp-image--36x36 {
-    max-width: 36px;
-    max-height: 36px; }
+    width: 36px;
+    height: 36px; }
   .mp-image--48x48 {
-    max-width: 48px;
-    max-height: 48px; }
+    width: 48px;
+    height: 48px; }
   .mp-image--w-100 {
     width: 100%;
     height: auto; }
   .mp-image--max-w-100px {
-    max-width: 100px;
+    width: 100px;
+    max-width: 100%;
     height: auto; }
 
 .mp-button, .mp-button-icon, .mp-form-icon, .mp-button-text, .mp-button--link, .mp-button--primary, .mp-button--outline, .mp-button--transparent, .mp-button--inline, .mp-button--inline-golden {
