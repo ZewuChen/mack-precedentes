@@ -14,11 +14,6 @@ class Collection extends Model
     public $fillable = [
         'name', 'slug', 'is_public', 'user_id',
     ];
-    
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
 
     public function user()
     {

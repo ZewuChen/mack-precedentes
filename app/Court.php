@@ -8,15 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Court extends Model
 {
     use WithSlug;
-    
+
     protected $fillable = [
         'name', 'alias', 'slug',
     ];
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
 
     public function precedents()
     {
