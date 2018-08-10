@@ -9,9 +9,7 @@ use Illuminate\Http\Request;
 class TagController extends Controller
 {
     public function show(Tag $tag)
-    {
-    	$collections =  (new Collections)->fetchAll();
-    	
-        return view('tags.show', compact('tag', 'collections'));
+    {    	
+        return view('tags.show', compact('tag'));
     }
 }

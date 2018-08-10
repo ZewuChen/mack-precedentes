@@ -2,10 +2,10 @@
 
 @section ('content')
 
-    <h1>{{ $collection->name }}</h1>
-    <p class="text-secondary"><small>Coleção de {{ $collection->user->name }}</small></p>
+    <h2 class="mp-heading">{{ $collection->name }}</h2>
+    <p class="mp-text-meta">Coleção de {{ $collection->user->name }}</p>
 
-    <div class="list-group">
+    <div class="py-4">
         
         @foreach ($collection->precedents as $precedent)
             @include ('precedents.precedent', ['incollection' => true, 'codcollection' => $collection->id])

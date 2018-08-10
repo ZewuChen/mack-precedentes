@@ -2,17 +2,21 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use App\Repositories\Precedents;
-use Illuminate\Support\Facades\Auth;
+use App\Traits\HasLikes;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Precedent extends Model
 {
-    use FullTextSearch;
+    use FullTextSearch, HasLikes;
 
-    public $fillable = ['number', 'slug', 'body', 'segregated_at', 'approved_at', 'suspended_at', 'canceled_at', 'reviewed_at', 'pending_resources', 
-    'additional_info', 'court_id', 'user_id', 'type_id', 'branch_id'];
+    public $fillable = [
+        'number', 'slug', 'body', 
+        'segregated_at', 'approved_at', 'suspended_at', 'canceled_at', 'reviewed_at', 
+        'pending_resources', 'additional_info', 'court_id', 'user_id', 'type_id', 'branch_id',
+    ];
 
     protected $searchable = [
         'number',
@@ -44,14 +48,14 @@ class Precedent extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function type()
-    {
-        return $this->belongsTo(PrecedentType::class);
-    }
-
     public function branch()
     {
         return $this->belongsTo(Branch::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(PrecedentType::class);
     }
 
     public function collections()
@@ -59,40 +63,14 @@ class Precedent extends Model
         return $this->belongsToMany(Collection::class)->withTimestamps();
     }
 
-    public function likes()
-    {
-        return $this->morphMany(Like::class, 'like');
-    }
-
     public function saves()
     {
-        return $this->belongsToMany(User::class)->withTimestamps();;
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     public function has(Precedent $precedent)
-    {
-        
-        $contain = $precedent->saves->contains(Auth::user()->id); 
-
-        return $contain;
-    }
-
-    public function hasLike(Precedent $precedent)
-    {
-        
-        $likes = $precedent->likes->where('user_id' , Auth::user()->id); 
-
-        foreach ($likes as $like) {
-            if($like['like_id'] == $precedent->id)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
+    {        
+        return $precedent->saves->contains(Auth::user()->id);
     }
 
     public function scopeLoggedIn($query)

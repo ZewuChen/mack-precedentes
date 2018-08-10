@@ -37,34 +37,23 @@ class SavesController extends Controller
         return view('precedents.index', compact('precedents', 'collections'));
     }
 
-    public function store(Request $request)
+    public function save(Precedent $precedent)
     {
+        // authorize
+        
+        $this->precedents->save($precedent, Auth::user());
 
-        $precedent = Precedent::find($request->get('precedent_id'));
-        $insert = $precedent->saves()->attach(Auth::user()->id);
-
-        if($insert)
-        {
-            return redirect()->back();
-        }
-        else
-        {
-            return redirect()->route('precedent.index');
-        }
+        return back()
+            ->with('success', 'Precedente salvo.');
     }
 
-    public function destroy(Request $request)
+    public function unsave(Precedent $precedent)
     {
-        $precedent = Precedent::find($request->get('precedent_id'));
-        $delete = $precedent->saves()->detach(Auth::user()->id);
+        // authorize
+        
+        $this->precedents->unsave($precedent, Auth::user());
 
-        if($delete)
-        {
-            return redirect()->back();
-        }
-        else
-        {
-            return 'Erro';
-        }
+        return back()
+            ->with('success', 'Precedente removido dos salvos.');
     }
 }

@@ -22,7 +22,7 @@ class CommentController extends Controller
 
     public function show(Comment $comment)
     {
-        $this->authorize('view', $comment);
+        // $this->authorize('view', $comment);
 
         return view('comments.show', compact('comment'));
     }
@@ -62,8 +62,30 @@ class CommentController extends Controller
     {
         $this->authorize('delete', $comment);
 
+        $precedent = $comment->precedent;
+
         $this->comments->delete($comment);
 
-        return back();
+        return redirect()
+            ->route('precedents.show', $precedent)
+            ->with('success', 'Comentário removido com sucesso.');
+    }
+
+    public function like(Comment $comment)
+    {
+        $comment->likes()->create([
+            'user_id' => Auth::user()->id
+        ]);
+
+        return back()
+            ->with('success', 'Comentário curtido.');
+    }
+
+    public function dislike(Comment $comment)
+    {
+        $comment->likes()->where('user_id', Auth::user()->id)->delete();
+
+        return back()
+            ->with('success', 'Comentário descurtido.');
     }
 }

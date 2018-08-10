@@ -10,9 +10,4 @@ class Courts extends Repository
     {
         return Court::ordered()->get();
     }
-
-    public function create($data)
-    {
-    	return Court::create($data);
-    }
 }

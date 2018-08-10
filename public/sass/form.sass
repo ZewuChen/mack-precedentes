@@ -1,0 +1,41 @@
+.mp-input
+    @extend .py-3
+    @extend .px-4
+    @extend .w-100
+    border-radius: 4px
+    border: 1px solid darken($gray, 4%)
+
+    &--rounded
+        @extend .mp-input
+        border-radius: 40px
+
+    &:focus,
+    &:hover
+        outline: none
+        border: 1px solid darken($gray, 15%)
+
+.mp-form-icon
+    @extend .mp-button-icon
+    background: $blue
+    position: absolute
+    right: 8px
+    top: 0
+    bottom: 0
+    margin-top: auto
+    margin-bottom: auto
+
+    &:hover
+        background: darken($blue, 4%)
+
+
+
+    // .mp-input
+        // @extend .mp-input
+        // border-radius: 40px
+
+        // + .mp-button-icon > .mp-button-icon
+        //     background: $blue
+
+    // .mp-button-icon
+    //     background: $blue
+

@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class PrecedentType extends Model
 {
-	public $fillable = ['name'];
+    protected $fillable = [
+        'name',
+    ];
 
     public function precedents()
     {

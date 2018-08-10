@@ -8,33 +8,24 @@ use App\PrecedentType;
 use App\Court;
 use App\Collection;
 use App\Repositories\Precedents;
-use App\Repositories\PrecedentsTypes;
 use App\Repositories\Courts;
-use App\Repositories\Collections;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PrecedentController extends Controller
 {
     protected $precedents;
-    protected $precedentsTypes;
-    protected $courts;
-    protected $collections;
 
-    public function __construct(Precedents $precedents, PrecedentsTypes $precedentsTypes, Courts $courts, Collections $collections)
+    public function __construct(Precedents $precedents)
     {
         $this->precedents = $precedents;
-        $this->precedentsTypes = $precedentsTypes;
-        $this->courts = $courts;
-        $this->collections = $collections;
     }
 
     public function index()
     {
         $precedents = $this->precedents->fetchAll();
-        $collections =  $this->collections->fetchAll();
 
-        return view('precedents.index', compact('precedents', 'collections'));
+        return view('precedents.index', compact('precedents'));
     }
 
     public function show(Precedent $precedent)
@@ -58,70 +49,63 @@ class PrecedentController extends Controller
 
         if($validate->fails())
         {
-            return redirect()->route('precedent.create')->withErrors($validate)->withInput(); 
+            return redirect()->route('precedents.create')->withErrors($validate)->withInput(); 
         }
         else
         {
             $insert = $this->precedents->create($data);
-            return redirect()->route('precedent.index');
+            return redirect()->route('precedents.show', $insert);
         }
         
     }
 
-    public function destroy($id)
+    public function destroy(Precedent $precedent)
     {
-        $precedents = $this->$precedents->find($id);
+        $this->authorize('delete', $precedent);
 
-        $delete = $precedents->delete();
+        $this->precedents->delete($precedent);
 
-        if($delete)
-        {
-            return redirect()->route('precedent.index');
-        }
-        else
-        {
-            return 'Falha ao excluir';
-        }
-
+        return back()
+            ->with('success', 'Precedente removido.');
     }
 
     public function search(Request $request)
     {
-        $data = $request->except('_token');
+        $data = $request->all();
 
-        if(isset($data['data']))
-        {
-            $precedents = Precedent::search($data['data'])->Filter($data)->get();
+        if ($request->get('data')) {
+            $precedents = Precedent::search($data['data'])->filter($data)->get();
+        } else {
+            $precedents = Precedent::filter($data)->get();
         }
-        else
-        {
-            $precedents = Precedent::Filter($data)->get();
-        }
-        
-        $collections =  $this->collections->fetchAll();
 
-        return view('precedents.index', compact('precedents', 'collections'));
-
+        return view('precedents.index', compact('precedents'));
     }
 
-    public function like(Request $request)
+    public function saved()
     {
-        $precedent = Precedent::find($request['precedent_id']);
+        // authorize
+        
+        $precedents = $this->precedents->savedBy(Auth::user());
 
+        return view('precedents.saved', compact('precedents'));
+    }
+
+    public function like(Precedent $precedent)
+    {
         $precedent->likes()->create([
             'user_id' => Auth::user()->id
         ]);
 
-        return redirect()->route('precedent.index');
+        return back()
+            ->with('success', 'Precedente ' . $precedent->number . ' curtido.');
     }
 
-    public function deslike(Request $request)
+    public function dislike(Precedent $precedent)
     {
-        $precedent = Precedent::find($request['precedent_id']);
-
         $precedent->likes()->where('user_id', Auth::user()->id)->delete();
 
-        return redirect()->route('precedent.index');
+        return back()
+            ->with('success', 'Precedente ' . $precedent->number . ' descurtido.');
     }
-
 }
