@@ -3,7 +3,7 @@
 @section ('content')
 
     <h2 class="mp-heading">{{ $precedent->type->name }}; {{ $precedent->number }}</h2>
-    <div class="mp-text-serif">{{ $precedent->body }}</div>
+    <div class="mp-text-serif">{!! $precedent->body !!}</div>
 
     <p class="mp-text-meta">Emitido {{ $precedent->created_at->diffForHumans() }} em <a href="{{ route('branches.show', $precedent->branch) }}">{{ $precedent->branch->name }}</a> no tribunal <a href="{{ route('courts.show', $precedent->court) }}">{{ $precedent->court->alias }}</a></p>
 
@@ -48,17 +48,22 @@
 
             {{ Form::open(['route' => 'comments.store', 'files' => true]) }}
                 <div class="form-group">
-                    {{ Form::textarea('body', old('body'), array('class' => 'form-control')) }}
+                    <textarea class="form-control" name="body" id="trumbowyg" required>{{ old('body') }}</textarea>
                 </div>
+
                 <div class="form-group">
                     {{ Form::label('Documento (PDF) - opcional') }}
                     {{ Form::file('file', array('class' => 'form-control'))}}
                 </div>
+
                 {{ Form::hidden('precedent_id', $precedent->id) }}
+
                 <div class="d-flex justify-content-end">
                     <input class="mp-button--primary" type="submit" value="Adicionar comentário">
                 </div>
             {{ Form::close() }}
+
+            @include ('trumbowyg-icons')
 
         </section>
     @endauth
@@ -66,7 +71,7 @@
     @if ($precedent->comments->count())
 
         <section class="mt-5">
-            <h6 class="mp-heading">Comentários ({{ $precedent->comments->count() }})</h6>
+            <h6 class="mp-heading">Comentários</h6>
 
             <div>
                 @foreach ($precedent->comments as $comment)
@@ -80,7 +85,7 @@
                                     </header>
                                     <div class="d-flex align-items-center my-2">
                                         <svg class="mp-icon mp-icon--dark mr-3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M10,7L8,11H11V17H5V11L7,7H10M18,7L16,11H19V17H13V11L15,7H18Z" /></svg>
-                                        <div class="mp-text-serif mp-text-meta">{{ str_limit($comment->body, 200) }}</div>
+                                        <div class="mp-text-serif mp-text-meta">{{ str_limit(strip_tags(html_entity_decode($comment->body)), 200) }}</div>
                                     </div>
                                 </div>
 
@@ -111,6 +116,16 @@
                     @endif
                 @endforeach
             </div>
+            <hr>
+            <p class="mp-text-meta"><strong>Disclaimer:</strong> os comentários exibidos no site são resultado do trabalho dos acadêmicos
+    da Universidade Presbiteriana Mackenzie ou de outros estudiosos, submetidos a
+    revisão dos editores do projeto Mack Precedentes, também acadêmicos de Direito.
+    Seu propósito é exclusivamente didático-científico, como ferramenta de discussão e
+    análise do conteúdo dos precedentes vinculantes analisados. Os comentários não
+    servem como orientação jurídica e estão sujeitos a erros de análise próprios do
+    contexto de sua produção. A autonomia científica dos autores dos comentários foi
+    preservada, motivo pelo qual o Observatório e a Universidade Presbiteriana Mackenzie
+    não se responsabilizam nem endossam as opiniões aqui expostas.</p>
 
         </section>
 

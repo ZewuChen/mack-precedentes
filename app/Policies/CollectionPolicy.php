@@ -33,6 +33,6 @@ class CollectionPolicy
 
     public function delete(User $user, Collection $collection)
     {
-        return true;
+        return $user->id == $collection->user_id;
     }
 }

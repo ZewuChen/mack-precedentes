@@ -8,10 +8,8 @@ use Illuminate\Http\Request;
 
 class PrecedentTypeController extends Controller
 {
-    public function show(PrecedentType $precedentType)
+    public function show(PrecedentType $type)
     {
-    	$collections =  (new Collections)->fetchAll();
-    	
-        return view('types.show', compact('precedentType', 'collections'));
+        return view('types.show', compact('type'));
     }
 }

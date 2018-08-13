@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '254505455157430',
         'client_secret' => '374e3caa970aeca926dc652bb6764b5f',
-        'redirect' => 'https://localhost/mack-precedentes/public/callback',
+        'redirect' => 'http://mackprecedentes.mackenzie.br/public/callback',
     ],
 
 ];

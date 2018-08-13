@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <div class="d-flex align-items-center justify-content-between">
                             <label for="password" class="mp-heading">Senha</label>
-                            <a class="mp-text-small" href="{{ route('password.request') }}">Esqueci minha senha</a>
+                            {{-- <a class="mp-text-small" href="{{ route('password.request') }}">Esqueci minha senha</a> --}}
                         </div>
                         <div>
                             <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>

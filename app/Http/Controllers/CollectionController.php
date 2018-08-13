@@ -39,6 +39,18 @@ class CollectionController extends Controller
             ->with('success', 'Precedente adicionado à coleção ' . $collection->name . '.');
     }
 
+    public function remove(Request $request, Collection $collection)
+    {
+        // authorize
+        
+        $precedent = (new Precedents)->find($request->get('precedent_id'));
+
+        $this->collections->remove($collection, $precedent);
+
+        return back()
+            ->with('success', 'Precedente ' . $precedent->number . ' removido da coleção.');
+    }
+
     public function new(Request $request)
     {
         //Cria a nova coleção e já seta o ID da coleção no Request
@@ -57,8 +69,7 @@ class CollectionController extends Controller
         $precedent = Precedent::find($request->get('precedent_id'));
         $insert = $precedent->collections()->attach($request->get('collection_id'));
 
-        return back();
-        
+        return back();        
     }
 
     public function store(CollectionCreateRequest $request)
@@ -74,11 +85,14 @@ class CollectionController extends Controller
             ->with('success', 'Coleção ' . $collection->name . ' criada.');
     }
 
-    public function destroy(Request $request)
+    public function destroy(Collection $collection)
     {
-        $precedent = $this->precedents->find($request->get('precedent_id'));
-        $precedent->collections()->detach($request->get('collection_id'));
+        $this->authorize('delete', $collection);
 
-        return back();
+        $this->collections->delete($collection);
+
+        return redirect()
+            ->route('home')
+            ->with('success', 'Coleção removida.');
     }
 }

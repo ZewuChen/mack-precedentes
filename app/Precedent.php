@@ -19,8 +19,7 @@ class Precedent extends Model
     ];
 
     protected $searchable = [
-        'number',
-        'body'
+        'number', 'body'
     ];
 
     public function getRouteKeyName()

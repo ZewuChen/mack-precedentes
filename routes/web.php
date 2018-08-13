@@ -1,5 +1,17 @@
 <?php
 
+Route::get('ntags', function () {
+    return view('tags');
+});
+
+// Pages
+Route::get('team', 'PageController@team')->name('team');
+Route::get('definition', 'PageController@definition')->name('definition');
+Route::get('proposal', 'PageController@proposal')->name('proposal');
+// Route::get('scientific-methodology', 'PageController@scientificMethodology')->name('scientific-methodology');
+Route::get('collection-methodology', 'PageController@collectionMethodology')->name('collection-methodology');
+Route::get('patreon', 'PageController@patreon')->name('patreon');
+
 // Precedents
 Route::group(['prefix' => 'precedentes'], function () {
     Route::get('saved', 'PrecedentController@saved')->name('precedents.saved');
@@ -49,11 +61,11 @@ Route::resource('comments', 'CommentController')
 // Collections
 Route::group(['prefix' => 'collections'], function () {
     Route::post('{collection}/add', 'CollectionController@add')->name('collections.add');
-    Route::post('new', 'CollectionController@new')->name('collections.new');
-    Route::post('destroy/{precedent}', 'CollectionController@destroy')->name('collections.destroy');
+    Route::delete('{collection}/remove', 'CollectionController@remove')->name('collections.remove');
+    // Route::post('new', 'CollectionController@new')->name('collections.new');
 });
 Route::resource('collections', 'CollectionController')
-    ->only('store', 'show');
+    ->only('store', 'show', 'destroy');
 
 // Auth
 Auth::routes();

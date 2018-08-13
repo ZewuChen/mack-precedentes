@@ -3,7 +3,7 @@
 @section ('content')
 
     <h2 class="mp-heading">{{ $tag->name }}</h2>
-    <p class="mp-text-meta">Precedentes categorizados como <strong>{{ $tag->name }}</strong></p>
+    <p class="mp-text-meta">Precedentes categorizados como <strong>{{ $tag->name }}</strong> ({{ $tag->precedents->count() }} resultados)</p>
 
     <div class="py-5">
         @foreach ($tag->precedents as $precedent)

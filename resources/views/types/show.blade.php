@@ -2,10 +2,11 @@
 
 @section ('content')
 
-    <h2 class="mp-heading">{{ $precedentType->name }}</h2>
+    <h2 class="mp-heading">{{ $type->name }}</h2>
+    <p class="mp-text-meta">({{ $type->precedents->count() }} resultados)</p>
 
     <div class="py-5">
-        @foreach ($precedentType->precedents as $precedent)
+        @foreach ($type->precedents as $precedent)
             @include ('precedents.precedent', $precedent)
         @endforeach
     </div>

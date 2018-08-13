@@ -7,41 +7,62 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="{{ url('css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/ui/trumbowyg.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/plugins/colors/ui/trumbowyg.colors.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/plugins/mathml/ui/trumbowyg.mathml.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/plugins/mention/ui/trumbowyg.mention.min.css">
+    <link rel="shortcut icon" sizes="196x196" href="{{ asset('img/favicon.png') }}">
 
     <title>Mack Precedentes</title>
 </head>
-<body>
+<body class="mp-bg-lightgray">
 
     @include ('nav')
     
-    @auth
-        {{ Form::open(['logout' => 'logout']) }}
-            <input type="submit" value="Logout">
-        {{ Form::close() }}
-    @endauth
-
-    
-
-    {{-- <a href="{{ route('user.index') }}"><input type="submit" value="Profile"></a> --}}
-    
-    <div class="container">
+    <div style="margin-left: 300px;">
         @include ('topbar')
-        <br><br>
-        {{-- <img class="mp-img--48x48" src="https://randomuser.me/api/portraits/men/32.jpg"> --}}
-        @yield ('content')
+
+        <div class="d-flex">
+            <div class="mp-content p-5">
+                @yield ('content')
+            </div>
+
+            <div class="mp-sidebar p-5">
+                @include ('sidebar')
+            </div>
+        </div>
         
     </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/trumbowyg.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/langs/pt_br.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.10.0/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript" defer>
         $(function () {
             setTimeout(function () {
                 $('.mp-flash').css('display', 'none');
             }, 6000);
+        });
+
+        $(document).ready(function() {
+            $('#trumbowyg').trumbowyg({
+                btns: [
+                    ['strong', 'em'],
+                    ['link'],
+                    ['unorderedList', 'orderedList'],
+                    ['removeformat'],
+                    ['superscript', 'subscript'],
+                    ['undo', 'redo'],
+                ],
+                removeformatPasted: true,
+                autogrow: true,
+            });
         });
     </script>
 
