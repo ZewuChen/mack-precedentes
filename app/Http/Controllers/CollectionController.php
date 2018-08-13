@@ -74,11 +74,21 @@ class CollectionController extends Controller
             ->with('success', 'Coleção ' . $collection->name . ' criada.');
     }
 
-    public function destroy(Request $request)
-    {
-        $precedent = $this->precedents->find($request->get('precedent_id'));
-        $precedent->collections()->detach($request->get('collection_id'));
+    // public function destroy(Request $request)
+    // {
+    //     $precedent = $this->precedents->find($request->get('precedent_id'));
+    //     $precedent->collections()->detach($request->get('collection_id'));
 
-        return back();
+    //     return back();
+    // }
+    // 
+    public function destroy(Collection $collection)
+    {
+        $this->authorize('delete', $collection);
+
+        $this->collections->delete($collection);
+
+        return redirect()
+            ->route('home');
     }
 }

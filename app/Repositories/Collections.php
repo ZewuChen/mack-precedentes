@@ -24,4 +24,9 @@ class Collections extends Repository
             'user_id' => $data['user_id'],
         ]);
     }
+
+    public function delete(Collection $collection)
+    {
+        $collection->delete();
+    }
 }

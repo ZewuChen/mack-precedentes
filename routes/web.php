@@ -1,5 +1,9 @@
 <?php
 
+Route::get('ntags', function () {
+    return view('tags');
+});
+
 // Pages
 Route::get('team', 'PageController@team')->name('team');
 Route::get('definition', 'PageController@definition')->name('definition');
@@ -58,10 +62,10 @@ Route::resource('comments', 'CommentController')
 Route::group(['prefix' => 'collections'], function () {
     Route::post('{collection}/add', 'CollectionController@add')->name('collections.add');
     Route::post('new', 'CollectionController@new')->name('collections.new');
-    Route::post('destroy/{precedent}', 'CollectionController@destroy')->name('collections.destroy');
+    // Route::post('destroy/{precedent}', 'CollectionController@destroy')->name('collections.destroy');
 });
 Route::resource('collections', 'CollectionController')
-    ->only('store', 'show');
+    ->only('store', 'show', 'destroy');
 
 // Auth
 Auth::routes();
