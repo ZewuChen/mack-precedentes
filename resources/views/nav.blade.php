@@ -74,7 +74,7 @@
 
     <div class="d-flex align-items-center justify-content-center" style="position: absolute; bottom: 24px; left: 0; right: 0;">
         <a href="https://www.mackenzie.br/">
-            <img class="mp-image--max-w-100px" src="{{ url('img/mackenzie-logo.png') }}">
+            <img class="mp-image--max-w-100px" src="{{ url('img/mack-pesquisa.png') }}">
         </a>
     </div>
 </nav>
