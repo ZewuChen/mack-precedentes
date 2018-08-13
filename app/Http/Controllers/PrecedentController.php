@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
+use App\Collection;
+use App\Court;
+use App\Http\Requests\PrecedentCreateRequest;
 use App\Precedent;
 use App\PrecedentType;
-use App\Court;
-use App\Collection;
-use App\Repositories\Precedents;
 use App\Repositories\Courts;
-use Illuminate\Support\Facades\Auth;
+use App\Repositories\Precedents;
+use App\Repositories\Tags;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PrecedentController extends Controller
 {
@@ -38,25 +41,37 @@ class PrecedentController extends Controller
         return view('precedents.create');
     }
 
-    public function store(Request $request)
+    public function store(PrecedentCreateRequest $request)
     {
-        $data = $request->all();
+        $this->authorize('create', Precedent::class);
 
-        $data['user_id'] = Auth::user()->id;
-        $data['slug'] = str_slug($data['number']) . '-' . str_random(10);
-    
-        $validate = validator($data, $this->precedents->createRules);
+        DB::beginTransaction();
 
-        if($validate->fails())
-        {
-            return redirect()->route('precedents.create')->withErrors($validate)->withInput(); 
+        try {
+            $data = array_add(
+                $request->except('tags', '_token'),
+                'user_id', Auth::user()->id
+            );
+            
+            $precedent = $this->precedents->create($data);
+
+            $tagNames = ($request->get('tags')) ? explode(',', $request->get('tags')) : array();
+
+            foreach ($tagNames as $name) {
+                $tag = (new Tags)->create(['name' => $name]);                
+                $this->precedents->addTag($precedent, $tag);
+            }
+
+            DB::commit();
+
+            return redirect()
+                ->route('precedents.show', $precedent)
+                ->with('success', 'Precedente ' . $precedent->number . ' criado com sucesso.');
+        } catch (\Exception $e) {
+            DB::rollback();
+
+            return back();
         }
-        else
-        {
-            $insert = $this->precedents->create($data);
-            return redirect()->route('precedents.show', $insert);
-        }
-        
     }
 
     public function destroy(Precedent $precedent)

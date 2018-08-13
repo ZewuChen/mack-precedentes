@@ -32,7 +32,7 @@
                 <div class="row d-flex align-items-center">
                     <label class="mp-heading col-2">Ramo do direito</label>
                     <select name="branch_id" class="form-control col-5">
-                        @foreach($branches as $branch)
+                        @foreach ($branches as $branch)
                             <option value="{{ $branch->id }}">{{ $branch->name }}</option>
                         @endforeach
                     </select>
@@ -43,19 +43,12 @@
                 <div class="row d-flex align-items-center">
                     <label class="mp-heading col-2">Origem processual*</label>
                     <select name="type_id" class="form-control col-5">    
-                            @foreach($precedentsTypes as $precedentsType)
-                                <option value="{{ $precedentsType->id }}">{!! $precedentsType->name !!}</option>
-                            @endforeach
+                        @foreach ($precedentsTypes as $precedentsType)
+                            <option value="{{ $precedentsType->id }}">{!! $precedentsType->name !!}</option>
+                        @endforeach
                     </select>
                 </div>        
             </div>		
-
-            {{-- <div class="form-group">
-                <div class="row d-flex align-items-center">
-                    <label class="mp-heading col-2">Tags</label>
-                    <textarea name="" class="form-control col-5"></textarea>
-                </div>      
-            </div>  --}}
 
             <div class="form-group">
                 <div class="row d-flex align-items-center">
@@ -109,7 +102,18 @@
             <div class="form-group">
                 <div class="row d-flex align-items-center">
                     <label class="mp-heading col-sm-2">Tese*</label>
-                    <textarea name="body" class="form-control col-8" id="trumbowyg" required>{{ old('body') }}</textarea>
+                    <div class="col-12">
+                        <textarea name="body" class="form-control col-8" id="trumbowyg" required>{{ old('body') }}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row d-flex align-items-center">
+                    <label class="mp-heading col-2">Tags</label>
+                    <div class="col-12">
+                        <textarea name="tags" id="tag-editor">{{ old('tags') }}</textarea>
+                    </div>
                 </div>
             </div>
 
@@ -120,5 +124,10 @@
         @include ('trumbowyg-icons')
     
     </div>
+
+    <script type="text/javascript" src="{{ asset('js/jquery.tag-editor.min.js') }}"></script>
+    <script type="text/javascript">
+        $('#tag-editor').tagEditor();
+    </script>
 
 @endsection

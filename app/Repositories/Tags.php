@@ -10,4 +10,12 @@ class Tags extends Repository
     {
         return Tag::ordered()->get();
     }
+
+    public function create(array $data)
+    {
+        return Tag::firstOrNew([
+            'name' => $data['name'],
+            'slug' => str_slug($data['name']),
+        ]);
+    }
 }
