@@ -89,6 +89,7 @@ class CollectionController extends Controller
         $this->collections->delete($collection);
 
         return redirect()
-            ->route('home');
+            ->route('home')
+            ->with('success', 'Coleção removida.');
     }
 }
