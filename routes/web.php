@@ -61,8 +61,8 @@ Route::resource('comments', 'CommentController')
 // Collections
 Route::group(['prefix' => 'collections'], function () {
     Route::post('{collection}/add', 'CollectionController@add')->name('collections.add');
-    Route::post('new', 'CollectionController@new')->name('collections.new');
-    // Route::post('destroy/{precedent}', 'CollectionController@destroy')->name('collections.destroy');
+    Route::delete('{collection}/remove', 'CollectionController@remove')->name('collections.remove');
+    // Route::post('new', 'CollectionController@new')->name('collections.new');
 });
 Route::resource('collections', 'CollectionController')
     ->only('store', 'show', 'destroy');

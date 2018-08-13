@@ -17,6 +17,11 @@ class Collections extends Repository
         $collection->precedents()->save($precedent);
     }
 
+    public function remove(Collection $collection, Precedent $precedent)
+    {
+        $collection->precedents()->detach($precedent->id);
+    }
+
     public function create($data)
     {
         return Collection::create([

@@ -7,7 +7,7 @@
 
     <div class="py-4">        
         @foreach ($collection->precedents as $precedent)
-            @include ('precedents.precedent', ['incollection' => true, 'codcollection' => $collection->id])
+            @include ('precedents.precedent', ['allowCollectionOperations' => true])
         @endforeach
     </div>
 
