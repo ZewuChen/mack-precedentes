@@ -11,4 +11,6 @@
         @endforeach
     </div>
 
+    {{-- {{ $precedents->links() }} --}}
+
 @endsection

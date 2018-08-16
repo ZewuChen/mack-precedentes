@@ -1,9 +1,5 @@
 <?php
 
-Route::get('ntags', function () {
-    return view('tags');
-});
-
 // Pages
 Route::get('team', 'PageController@team')->name('team');
 Route::get('definition', 'PageController@definition')->name('definition');
