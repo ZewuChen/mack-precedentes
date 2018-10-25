@@ -1,6 +1,6 @@
 <div class="d-flex align-items justify-content-between mp-topbar">
     <div class="px-5">
-        {{-- {{ Form::open(['route' => 'precedents.search', 'method' => 'get'])}}
+        {{ Form::open(['route' => 'precedents.search', 'method' => 'get'])}}
             <div class="d-flex align-items-center">
                 <button class="mp-button-icon" type="submit">
                     <svg class="mp-icon--dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
@@ -25,7 +25,7 @@
                             @endforeach 
                         </fieldset>
 
-                        <fieldset class="col-4">
+                        <fieldset class="col-6">
                             <legend class="mp-text-meta">Origem processual</legend>
                             @foreach ($precedentsTypes->take(10) as $precedentType)
                                 <div class="form-check">
@@ -64,7 +64,7 @@
                 <input class="mp-button--outline" type="submit" value="Filtrar">
             </div>
 
-        {{ Form::close() }} --}}
+        {{ Form::close() }} 
     </div>
 
 
