@@ -25,7 +25,7 @@
                             @endforeach 
                         </fieldset>
 
-                        <fieldset class="col-4">
+                        <fieldset class="col-6">
                             <legend class="mp-text-meta">Origem processual</legend>
                             @foreach ($precedentsTypes->take(10) as $precedentType)
                                 <div class="form-check">
@@ -64,7 +64,7 @@
                 <input class="mp-button--outline" type="submit" value="Filtrar">
             </div>
 
-        {{ Form::close() }}
+        {{ Form::close() }} 
     </div>
 
 

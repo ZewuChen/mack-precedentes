@@ -54,6 +54,14 @@
                             <svg class="mp-icon--dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" /></svg>
                         </button>
                         <div class="dropdown-menu">
+                            
+                            @if (isset($allowCollectionOperations) && $allowCollectionOperations)
+                                {{ Form::open(['route' => array('collections.remove', $collection), 'method' => 'delete']) }}
+                                    {{ Form::hidden('precedent_id', $precedent->id) }}
+                                    <input type="submit" class="mp-dropdown__item" value="Remover da coleção">
+                                {{ Form::close() }}
+                            @endif
+                            
                             {{ Form::open(['route' => array('precedents.destroy', $precedent), 'method' => 'delete']) }}
                                 <input class="mp-dropdown__item" type="submit" value="Deletar">
                             {{ Form::close() }}

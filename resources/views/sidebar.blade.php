@@ -10,6 +10,17 @@
 </section>
 
 <section class="mb-5">
+    <h6 class="mp-heading">Tribunais</h6>
+    <ul class="list-unstyled">
+        @forelse ($courts->random(8) as $court)
+            <li><a href="{{ route('courts.show', $court) }}">{{ $court->name }}</a></li>
+        @empty
+            <li>Nenhum tribunal encontrado</li>
+        @endforelse
+    </ul>
+</section>
+
+<section class="mb-5">
     <h6 class="mp-heading">Origens Processuais</h6>
     <ul class="list-unstyled">
         @forelse ($precedentsTypes as $type)
@@ -31,16 +42,7 @@
     </div>
 </section>
 
-<section class="mb-5">
-    <h6 class="mp-heading">Tribunais</h6>
-    <ul class="list-unstyled">
-        @forelse ($courts->random(8) as $court)
-            <li><a href="{{ route('courts.show', $court) }}">{{ $court->name }}</a></li>
-        @empty
-            <li>Nenhum tribunal encontrado</li>
-        @endforelse
-    </ul>
-</section>
+
 
 <div class="d-flex align-items-center flex-wrap justify-content-center mp-text-meta pt-5">
     <a href="{{ route('definition') }}" class="mp-text-secondary mx-2 my-1">Definição</a>

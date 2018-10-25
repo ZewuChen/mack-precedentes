@@ -4,13 +4,14 @@ namespace App;
 
 use App\Repositories\Precedents;
 use App\Traits\HasLikes;
+use App\Traits\WithSlug;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 class Precedent extends Model
 {
-    use FullTextSearch, HasLikes;
+    use FullTextSearch, HasLikes, WithSlug;
 
     public $fillable = [
         'number', 'slug', 'body', 
@@ -21,11 +22,6 @@ class Precedent extends Model
     protected $searchable = [
         'number', 'body'
     ];
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
 
     public function court()
     {
